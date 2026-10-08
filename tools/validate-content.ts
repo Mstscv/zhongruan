@@ -99,7 +99,7 @@ function main() {
         }
         const q = parsed.data
         if (q.chapter !== dir) err(`${label}: 章节 ${q.chapter} 与目录 ${dir} 不符`)
-        if (q.id.slice(2, 4) !== dir.slice(2)) err(`${label}: 题号 ${q.id} 与目录 ${dir} 不符`)
+        if (q.id.slice(3, 5) !== dir.slice(2)) err(`${label}: 题号 ${q.id} 与目录 ${dir} 不符`)
         if (allIds.has(q.id)) err(`${label}: 题号重复 ${q.id}`)
         allIds.add(q.id)
 
@@ -175,7 +175,7 @@ function main() {
       }
       const c = parsed.data
       if (c.chapter !== dir) err(`${rel}: chapter=${c.chapter} 与目录 ${dir} 不符`)
-      if (c.id.slice(5, 7) !== dir.slice(2)) err(`${rel}: 案例号 ${c.id} 与目录 ${dir} 不符`)
+      if (c.id.slice(6, 8) !== dir.slice(2)) err(`${rel}: 案例号 ${c.id} 与目录 ${dir} 不符`)
       if (caseIds.has(c.id)) err(`${rel}: 案例号重复 ${c.id}`)
       caseIds.add(c.id)
       const sum = c.questions.reduce((a, q) => a + q.score, 0)

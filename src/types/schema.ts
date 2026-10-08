@@ -60,6 +60,7 @@ export const DayTaskSchema = z.object({
   target: z.number().min(1),
   chapter: z.string().optional(),
   sectionId: z.string().optional(),
+  caseId: z.string().optional(),
   done: z.boolean(),
 })
 export type DayTask = z.infer<typeof DayTaskSchema>
@@ -93,6 +94,10 @@ export const MockAttemptSchema = z.object({
   durationSec: z.number().int().min(0),
   wrongQids: z.array(z.string()),
   seed: z.number().int(),
+  /** 整卷题号（用于成绩单按章统计；旧数据可能为空数组） */
+  paper: z.array(z.string()).default([]),
+  /** 未作答题号（成绩单里区分"答错"与"未作答"） */
+  unanswered: z.array(z.string()).default([]),
 })
 export type MockAttempt = z.infer<typeof MockAttemptSchema>
 

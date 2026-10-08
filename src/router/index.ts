@@ -4,11 +4,7 @@ import { useProgressStore } from '@/stores/progress'
 /**
  * hash 路由：同一份构建可部署到任意静态托管，也可离线 file:// 双击打开。
  * meta.hideNav = 沉浸流程（不显示底部导航）。
- * 暂未实现的页面统一指向 Placeholder（读取 meta.title / meta.desc），
- * 各阶段完成后把 component 换成真实视图即可。
  */
-const Placeholder = () => import('@/views/Placeholder.vue')
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -24,50 +20,66 @@ const router = createRouter({
       component: () => import('@/views/OnboardingView.vue'),
       meta: { title: '开始设置', hideNav: true },
     },
-    {
-      path: '/plan',
-      component: Placeholder,
-      meta: { title: '学习计划', desc: '阶段划分与每日任务安排将在下一阶段上线' },
-    },
+    { path: '/plan', component: () => import('@/views/PlanView.vue'), meta: { title: '学习计划' } },
     {
       path: '/calendar',
-      component: Placeholder,
-      meta: { title: '打卡日历', desc: '打卡记录与连续天数统计将在下一阶段上线' },
+      component: () => import('@/views/CalendarView.vue'),
+      meta: { title: '打卡日历' },
     },
 
-    { path: '/quiz', component: Placeholder, meta: { title: '题库', desc: '章节练习、错题本、模拟考将在下一阶段上线' } },
+    { path: '/quiz', component: () => import('@/views/quiz/QuizHomeView.vue'), meta: { title: '题库' } },
     {
       path: '/quiz/ch/:id',
-      component: Placeholder,
-      meta: { title: '章节练习' },
+      component: () => import('@/views/quiz/ChapterConfigView.vue'),
+      meta: { title: '章节练习', hideNav: true },
     },
     {
       path: '/quiz/session',
-      component: Placeholder,
+      component: () => import('@/views/quiz/SessionView.vue'),
       meta: { title: '做题', hideNav: true },
     },
-    { path: '/quiz/wrong', component: Placeholder, meta: { title: '错题本' } },
-    { path: '/quiz/favorites', component: Placeholder, meta: { title: '收藏夹' } },
+    {
+      path: '/quiz/wrong',
+      component: () => import('@/views/quiz/WrongBookView.vue'),
+      meta: { title: '错题本', hideNav: true },
+    },
+    {
+      path: '/quiz/favorites',
+      component: () => import('@/views/quiz/FavoritesView.vue'),
+      meta: { title: '收藏夹', hideNav: true },
+    },
 
-    { path: '/mock/intro', component: Placeholder, meta: { title: '模拟考试' } },
+    {
+      path: '/mock/intro',
+      component: () => import('@/views/mock/MockIntroView.vue'),
+      meta: { title: '模拟考试', hideNav: true },
+    },
     {
       path: '/mock/exam',
-      component: Placeholder,
+      component: () => import('@/views/mock/MockExamView.vue'),
       meta: { title: '考试中', hideNav: true },
     },
-    { path: '/mock/result', component: Placeholder, meta: { title: '成绩单' } },
+    {
+      path: '/mock/result',
+      component: () => import('@/views/mock/MockResultView.vue'),
+      meta: { title: '成绩单' },
+    },
 
-    { path: '/handbook', component: Placeholder, meta: { title: '手册', desc: '知识点手册将在下一阶段上线' } },
+    {
+      path: '/handbook',
+      component: () => import('@/views/handbook/HandbookIndexView.vue'),
+      meta: { title: '手册' },
+    },
     {
       path: '/handbook/:sectionId',
-      component: Placeholder,
+      component: () => import('@/views/handbook/ReaderView.vue'),
       meta: { title: '阅读', hideNav: true },
     },
 
-    { path: '/case', component: Placeholder, meta: { title: '案例训练', desc: '案例问答训练将在下一阶段上线' } },
+    { path: '/case', component: () => import('@/views/case/CaseListView.vue'), meta: { title: '案例训练' } },
     {
       path: '/case/:id',
-      component: Placeholder,
+      component: () => import('@/views/case/CaseDetailView.vue'),
       meta: { title: '案例作答', hideNav: true },
     },
 

@@ -10,8 +10,11 @@ export interface Adapter {
   remove(key: string): void
 }
 
+const hasWindow = typeof window !== 'undefined'
+
 export const localAdapter: Adapter = {
   get: (key) => {
+    if (!hasWindow) return null
     try {
       return window.localStorage.getItem(key)
     } catch {
@@ -19,6 +22,7 @@ export const localAdapter: Adapter = {
     }
   },
   set: (key, value) => {
+    if (!hasWindow) return
     try {
       window.localStorage.setItem(key, value)
     } catch (e) {
@@ -26,6 +30,7 @@ export const localAdapter: Adapter = {
     }
   },
   remove: (key) => {
+    if (!hasWindow) return
     try {
       window.localStorage.removeItem(key)
     } catch {

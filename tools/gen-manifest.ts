@@ -151,6 +151,7 @@ function main() {
           id: parsed.data.id,
           file: rel,
           title: parsed.data.title,
+          score: parsed.data.score,
           questionCount: parsed.data.questions.length,
         })
       } catch (e) {

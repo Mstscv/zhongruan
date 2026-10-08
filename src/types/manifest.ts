@@ -16,6 +16,7 @@ export interface ManifestCase {
   id: string
   file: string
   title: string
+  score: number
   questionCount: number
 }
 

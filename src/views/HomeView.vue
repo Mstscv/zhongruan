@@ -3,6 +3,8 @@ import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useProgressStore } from '@/stores/progress'
 import { getManifest } from '@/services/contentLoader'
+import { ensureTodayTasks } from '@/services/bootstrap'
+import { PHASE_META, phaseOf } from '@/services/plan'
 import ProgressRing from '@/components/ProgressRing.vue'
 import { todayStr } from '@/utils/date'
 
@@ -13,7 +15,11 @@ const manifest = getManifest()
 onMounted(() => {
   if (!store.data.profile.onboarded) router.replace('/onboard')
   store.ensureStartDate()
+  ensureTodayTasks(store)
 })
+
+const phase = computed(() => phaseOf(store.data.profile))
+const phaseMeta = computed(() => PHASE_META[phase.value])
 
 const daysLeft = computed(() => Math.max(0, store.daysLeft))
 
@@ -85,6 +91,10 @@ const lastReadTitle = computed(() => {
                 daysLeft
               }}</span>
               <span class="text-[15px] font-medium text-ink2">天</span>
+            </p>
+            <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-paper px-2.5 py-1 text-[12.5px] font-medium">
+              <span class="h-2 w-2 rounded-full" :style="{ background: phaseMeta.color }" />
+              {{ phaseMeta.label }} · {{ phaseMeta.desc }}
             </p>
             <p class="mt-2 text-[13px] text-muted">
               考试日期 {{ store.data.profile.examDate }}

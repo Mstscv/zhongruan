@@ -5,18 +5,16 @@ import type { Manifest } from '@/types/manifest'
 const manifest = manifestData as unknown as Manifest
 
 /* 按需加载：每个章节的题片 / 每个手册文件 / 每个案例文件各自独立 chunk */
-const bankModules = import.meta.glob('/content/bank/*/*.json') as Record<
-  string,
-  () => Promise<unknown>
->
+const bankModules = import.meta.glob('/content/bank/*/*.json', {
+  import: 'default',
+}) as Record<string, () => Promise<Question[]>>
 const sectionModules = import.meta.glob('/content/handbook/*/*.md', {
   query: '?raw',
   import: 'default',
 }) as Record<string, () => Promise<string>>
-const caseModules = import.meta.glob('/content/cases/*/*.json') as Record<
-  string,
-  () => Promise<unknown>
->
+const caseModules = import.meta.glob('/content/cases/*/*.json', {
+  import: 'default',
+}) as Record<string, () => Promise<Case>>
 
 const bankCache = new Map<string, Question[]>()
 const caseCache = new Map<string, Case>()
@@ -43,7 +41,7 @@ export async function loadChapterQuestions(chapterId: string): Promise<Question[
     chapter.shards.map(async (s) => {
       const loader = bankModules[`/content/${s.file}`]
       if (!loader) throw new Error(`题片缺失：${s.file}`)
-      return (await loader()) as Question[]
+      return loader()
     }),
   )
   const all = shards.flat()
@@ -58,7 +56,7 @@ export async function loadQuestionsByChapterIds(chapterIds: string[]): Promise<Q
 }
 
 export async function loadQuestionMap(qids: string[]): Promise<Map<string, Question>> {
-  const chapterIds = [...new Set(qids.map((q) => q.slice(2, 4)).map((n) => `ch${n}`))]
+  const chapterIds = [...new Set(qids.map((q) => q.slice(3, 5)).map((n) => `ch${n}`))]
   const all = await loadQuestionsByChapterIds(chapterIds)
   const map = new Map(all.map((q) => [q.id, q]))
   return map
@@ -88,7 +86,7 @@ export async function loadCase(caseId: string): Promise<Case> {
   if (!file) throw new Error(`案例缺失：${caseId}`)
   const loader = caseModules[`/content/${file}`]
   if (!loader) throw new Error(`案例文件缺失：${file}`)
-  const data = (await loader()) as Case
+  const data = await loader()
   caseCache.set(caseId, data)
   return data
 }

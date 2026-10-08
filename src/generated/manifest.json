@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T14:34:08.733Z",
+  "generatedAt": "2026-10-08T14:54:52.735Z",
   "disclaimer": "本手册与题库由 AI 依据公开知识生成，属练习材料；知识点与考试安排请以《系统集成项目管理工程师教程（第3版）》及官方通知为准。",
   "exam": {
     "defaultDate": "2027-05-20",
@@ -284,10 +284,30 @@
           "title": "控制进度"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 35,
+      "shards": [
+        {
+          "file": "bank/ch07/shard-01.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch07--07-3-排列活动顺序",
+          "file": "handbook/ch07/07-3-排列活动顺序.md",
+          "title": "排列活动顺序",
+          "topic": "7.3"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00701",
+          "file": "cases/ch07/CASE-00701.json",
+          "title": "某制造企业OA系统上线项目的进度网络分析",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch08",
