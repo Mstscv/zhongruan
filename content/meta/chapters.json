@@ -1,0 +1,288 @@
+{
+  "version": 1,
+  "note": "章节骨架基于《系统集成项目管理工程师教程（第3版）》体系整理；标题可对照官方目录修订，id（ch01~ch19）一经冻结不可更改。",
+  "exam": {
+    "defaultDate": "2027-05-20",
+    "passScore": 75,
+    "passLine": 45,
+    "paperQuestions": 75,
+    "paperMinutes": 150,
+    "note": "日期/时长/合格线为占位默认值，需对照官方通知校对；均可在应用设置中修改"
+  },
+  "chapters": [
+    {
+      "id": "ch01",
+      "no": 1,
+      "title": "信息化发展",
+      "group": "基础",
+      "bankTarget": 95,
+      "caseTarget": 1,
+      "topics": [
+        { "code": "1.1", "title": "信息与信息化基础" },
+        { "code": "1.2", "title": "电子政务与电子商务" },
+        { "code": "1.3", "title": "数字经济与新型基础设施" },
+        { "code": "1.4", "title": "数字中国与信息社会发展" }
+      ]
+    },
+    {
+      "id": "ch02",
+      "no": 2,
+      "title": "信息技术发展",
+      "group": "基础",
+      "bankTarget": 105,
+      "caseTarget": 1,
+      "topics": [
+        { "code": "2.1", "title": "计算机网络技术" },
+        { "code": "2.2", "title": "软件与操作系统技术" },
+        { "code": "2.3", "title": "数据技术与数据库" },
+        { "code": "2.4", "title": "云计算、大数据与物联网" },
+        { "code": "2.5", "title": "人工智能、区块链与新一代通信技术" }
+      ]
+    },
+    {
+      "id": "ch03",
+      "no": 3,
+      "title": "信息系统集成及服务",
+      "group": "基础",
+      "bankTarget": 75,
+      "caseTarget": 1,
+      "topics": [
+        { "code": "3.1", "title": "信息系统集成概述" },
+        { "code": "3.2", "title": "信息系统集成资质管理" },
+        { "code": "3.3", "title": "信息系统运维与服务管理" },
+        { "code": "3.4", "title": "信息系统工程监理" }
+      ]
+    },
+    {
+      "id": "ch04",
+      "no": 4,
+      "title": "项目管理基础与立项管理",
+      "group": "基础",
+      "bankTarget": 95,
+      "caseTarget": 3,
+      "topics": [
+        { "code": "4.1", "title": "项目管理基础概念" },
+        { "code": "4.2", "title": "项目生命期与组织结构" },
+        { "code": "4.3", "title": "项目管理知识体系与过程组" },
+        { "code": "4.4", "title": "项目立项管理" },
+        { "code": "4.5", "title": "可行性研究" },
+        { "code": "4.6", "title": "招投标与政府采购" }
+      ]
+    },
+    {
+      "id": "ch05",
+      "no": 5,
+      "title": "项目整体管理",
+      "group": "十大领域",
+      "bankTarget": 100,
+      "caseTarget": 3,
+      "topics": [
+        { "code": "5.1", "title": "制定项目章程" },
+        { "code": "5.2", "title": "制定项目管理计划" },
+        { "code": "5.3", "title": "指导与管理项目工作" },
+        { "code": "5.4", "title": "管理项目知识" },
+        { "code": "5.5", "title": "监控项目工作" },
+        { "code": "5.6", "title": "实施整体变更控制" },
+        { "code": "5.7", "title": "结束项目或阶段" }
+      ]
+    },
+    {
+      "id": "ch06",
+      "no": 6,
+      "title": "项目范围管理",
+      "group": "十大领域",
+      "bankTarget": 85,
+      "caseTarget": 2,
+      "topics": [
+        { "code": "6.1", "title": "规划范围管理" },
+        { "code": "6.2", "title": "收集需求" },
+        { "code": "6.3", "title": "定义范围" },
+        { "code": "6.4", "title": "创建 WBS" },
+        { "code": "6.5", "title": "确认范围" },
+        { "code": "6.6", "title": "控制范围" }
+      ]
+    },
+    {
+      "id": "ch07",
+      "no": 7,
+      "title": "项目进度管理",
+      "group": "十大领域",
+      "bankTarget": 115,
+      "caseTarget": 4,
+      "topics": [
+        { "code": "7.1", "title": "规划进度管理" },
+        { "code": "7.2", "title": "定义活动" },
+        { "code": "7.3", "title": "排列活动顺序" },
+        { "code": "7.4", "title": "估算活动持续时间" },
+        { "code": "7.5", "title": "制定进度计划" },
+        { "code": "7.6", "title": "控制进度" }
+      ]
+    },
+    {
+      "id": "ch08",
+      "no": 8,
+      "title": "项目成本管理",
+      "group": "十大领域",
+      "bankTarget": 115,
+      "caseTarget": 4,
+      "topics": [
+        { "code": "8.1", "title": "规划成本管理" },
+        { "code": "8.2", "title": "估算成本" },
+        { "code": "8.3", "title": "制定预算" },
+        { "code": "8.4", "title": "控制成本与挣值管理" }
+      ]
+    },
+    {
+      "id": "ch09",
+      "no": 9,
+      "title": "项目质量管理",
+      "group": "十大领域",
+      "bankTarget": 85,
+      "caseTarget": 2,
+      "topics": [
+        { "code": "9.1", "title": "规划质量管理" },
+        { "code": "9.2", "title": "管理质量" },
+        { "code": "9.3", "title": "控制质量" },
+        { "code": "9.4", "title": "质量管理工具与持续改进" }
+      ]
+    },
+    {
+      "id": "ch10",
+      "no": 10,
+      "title": "项目资源管理",
+      "group": "十大领域",
+      "bankTarget": 75,
+      "caseTarget": 2,
+      "topics": [
+        { "code": "10.1", "title": "规划资源管理" },
+        { "code": "10.2", "title": "估算活动资源" },
+        { "code": "10.3", "title": "获取资源" },
+        { "code": "10.4", "title": "建设与管理团队" },
+        { "code": "10.5", "title": "控制资源" }
+      ]
+    },
+    {
+      "id": "ch11",
+      "no": 11,
+      "title": "项目沟通管理",
+      "group": "十大领域",
+      "bankTarget": 75,
+      "caseTarget": 2,
+      "topics": [
+        { "code": "11.1", "title": "规划沟通管理" },
+        { "code": "11.2", "title": "管理沟通" },
+        { "code": "11.3", "title": "监督沟通" }
+      ]
+    },
+    {
+      "id": "ch12",
+      "no": 12,
+      "title": "项目干系人管理",
+      "group": "十大领域",
+      "bankTarget": 65,
+      "caseTarget": 1,
+      "topics": [
+        { "code": "12.1", "title": "识别干系人" },
+        { "code": "12.2", "title": "规划干系人参与" },
+        { "code": "12.3", "title": "管理与监督干系人参与" }
+      ]
+    },
+    {
+      "id": "ch13",
+      "no": 13,
+      "title": "项目风险管理",
+      "group": "十大领域",
+      "bankTarget": 100,
+      "caseTarget": 3,
+      "topics": [
+        { "code": "13.1", "title": "规划风险管理" },
+        { "code": "13.2", "title": "识别风险" },
+        { "code": "13.3", "title": "实施定性风险分析" },
+        { "code": "13.4", "title": "实施定量风险分析" },
+        { "code": "13.5", "title": "规划风险应对" },
+        { "code": "13.6", "title": "实施风险应对与监督风险" }
+      ]
+    },
+    {
+      "id": "ch14",
+      "no": 14,
+      "title": "项目采购管理",
+      "group": "十大领域",
+      "bankTarget": 75,
+      "caseTarget": 2,
+      "topics": [
+        { "code": "14.1", "title": "规划采购管理" },
+        { "code": "14.2", "title": "实施采购" },
+        { "code": "14.3", "title": "控制采购" }
+      ]
+    },
+    {
+      "id": "ch15",
+      "no": 15,
+      "title": "项目合同管理",
+      "group": "专项",
+      "bankTarget": 90,
+      "caseTarget": 3,
+      "topics": [
+        { "code": "15.1", "title": "合同基础与合同类型" },
+        { "code": "15.2", "title": "合同签订与履行" },
+        { "code": "15.3", "title": "合同变更与索赔" }
+      ]
+    },
+    {
+      "id": "ch16",
+      "no": 16,
+      "title": "信息文档管理与配置管理",
+      "group": "专项",
+      "bankTarget": 75,
+      "caseTarget": 2,
+      "topics": [
+        { "code": "16.1", "title": "信息系统项目文档管理" },
+        { "code": "16.2", "title": "配置管理" },
+        { "code": "16.3", "title": "变更管理与版本控制" }
+      ]
+    },
+    {
+      "id": "ch17",
+      "no": 17,
+      "title": "知识产权、法律法规与标准化",
+      "group": "专项",
+      "bankTarget": 105,
+      "caseTarget": 3,
+      "topics": [
+        { "code": "17.1", "title": "知识产权与著作权" },
+        { "code": "17.2", "title": "商标权、专利权与商业秘密" },
+        { "code": "17.3", "title": "招投标法与政府采购法" },
+        { "code": "17.4", "title": "合同法律制度" },
+        { "code": "17.5", "title": "网络安全、数据安全与个人信息保护" },
+        { "code": "17.6", "title": "标准化知识" }
+      ]
+    },
+    {
+      "id": "ch18",
+      "no": 18,
+      "title": "项目管理成熟度与组织级项目管理",
+      "group": "进阶",
+      "bankTarget": 55,
+      "caseTarget": 0,
+      "topics": [
+        { "code": "18.1", "title": "项目管理成熟度模型" },
+        { "code": "18.2", "title": "项目集与项目组合管理" },
+        { "code": "18.3", "title": "流程管理与战略管理" }
+      ]
+    },
+    {
+      "id": "ch19",
+      "no": 19,
+      "title": "专业英语",
+      "group": "进阶",
+      "bankTarget": 45,
+      "caseTarget": 0,
+      "note": "英语题是否计分及分值以官方通知为准（标'需核对'），先按少量题准备",
+      "topics": [
+        { "code": "19.1", "title": "项目管理专业英语" },
+        { "code": "19.2", "title": "信息技术专业英语" }
+      ]
+    }
+  ]
+}
