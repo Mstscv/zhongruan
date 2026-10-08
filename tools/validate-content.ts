@@ -206,6 +206,18 @@ function main() {
       }
       const md = readJSONSafe(join(CONTENT, 'handbook', dir, file))
       if (md !== null && !/^#\s+/m.test(md)) err(`handbook/${dir}/${file}: 缺少一级标题`)
+      if (md !== null) {
+        // CommonMark 坑：** 内侧紧贴括号 → 加粗失效、字面 ** 漏出
+        // 只匹配实测会渲染失败的形态（**X**（Y）/ **X**： 等正常形式不报）
+        const lines = md.split('\n')
+        lines.forEach((line, li) => {
+          const brokenPair = /\S\*\*[（(][^*]+[)）]\*\*/.test(line) // 用**（内容）**描述
+          const brokenClose = /[)）]\*\*[A-Za-z一-龥]/.test(line) // ）**后面直接跟文字
+          if (brokenPair || brokenClose) {
+            warn(`handbook/${dir}/${file}:${li + 1}: 加粗内侧贴括号，会渲染失效（把括号移到 ** 外面）`)
+          }
+        })
+      }
     }
   }
 

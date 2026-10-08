@@ -9,7 +9,7 @@ const emit = defineEmits<{ close: [] }>()
       <div v-if="open" class="fixed inset-0 z-[55] flex flex-col justify-end">
         <div class="absolute inset-0 bg-black/40" @click="emit('close')" />
         <div
-          class="relative max-h-[82dvh] overflow-y-auto rounded-t-2xl bg-paper pb-[calc(20px+env(safe-area-inset-bottom))] anim-slide-up"
+          class="relative mx-auto max-h-[82dvh] w-full max-w-[480px] overflow-y-auto rounded-t-2xl bg-paper pb-[calc(20px+env(safe-area-inset-bottom))] anim-slide-up"
         >
           <div
             v-if="title"
