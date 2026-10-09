@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T16:03:29.078Z",
+  "generatedAt": "2026-10-09T16:31:28.020Z",
   "disclaimer": "本手册与题库由 AI 依据公开知识生成，属练习材料；知识点与考试安排请以《系统集成项目管理工程师教程（第3版）》及官方通知为准。",
   "exam": {
     "defaultDate": "2027-05-23",
@@ -208,10 +208,82 @@
           "title": "招投标与政府采购"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 95,
+      "shards": [
+        {
+          "file": "bank/ch04/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch04/shard-02.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch04/shard-03.json",
+          "count": 15
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch04--04-1-项目管理基础概念",
+          "file": "handbook/ch04/04-1-项目管理基础概念.md",
+          "title": "项目管理基础概念",
+          "topic": "4.1"
+        },
+        {
+          "id": "ch04--04-2-项目生命期与组织结构",
+          "file": "handbook/ch04/04-2-项目生命期与组织结构.md",
+          "title": "项目生命期与组织结构",
+          "topic": "4.2"
+        },
+        {
+          "id": "ch04--04-3-项目管理知识体系与过程组",
+          "file": "handbook/ch04/04-3-项目管理知识体系与过程组.md",
+          "title": "项目管理知识体系与过程组",
+          "topic": "4.3"
+        },
+        {
+          "id": "ch04--04-4-项目立项管理",
+          "file": "handbook/ch04/04-4-项目立项管理.md",
+          "title": "项目立项管理",
+          "topic": "4.4"
+        },
+        {
+          "id": "ch04--04-5-可行性研究",
+          "file": "handbook/ch04/04-5-可行性研究.md",
+          "title": "可行性研究",
+          "topic": "4.5"
+        },
+        {
+          "id": "ch04--04-6-招投标与政府采购",
+          "file": "handbook/ch04/04-6-招投标与政府采购.md",
+          "title": "招投标与政府采购",
+          "topic": "4.6"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00401",
+          "file": "cases/ch04/CASE-00401.json",
+          "title": "某市智慧人社平台可行性研究财务评价",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00402",
+          "file": "cases/ch04/CASE-00402.json",
+          "title": "某省政务云项目招投标程序违规辨析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00403",
+          "file": "cases/ch04/CASE-00403.json",
+          "title": "某软件公司组织结构选择与过程组判断",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch05",
@@ -800,10 +872,53 @@
           "title": "控制采购"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 75,
+      "shards": [
+        {
+          "file": "bank/ch14/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch14/shard-02.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch14--14-1-规划采购管理",
+          "file": "handbook/ch14/14-1-规划采购管理.md",
+          "title": "规划采购管理",
+          "topic": "14.1"
+        },
+        {
+          "id": "ch14--14-2-实施采购",
+          "file": "handbook/ch14/14-2-实施采购.md",
+          "title": "实施采购",
+          "topic": "14.2"
+        },
+        {
+          "id": "ch14--14-3-控制采购",
+          "file": "handbook/ch14/14-3-控制采购.md",
+          "title": "控制采购",
+          "topic": "14.3"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-01401",
+          "file": "cases/ch14/CASE-01401.json",
+          "title": "智慧园区传感器网关的自制或外购决策",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-01402",
+          "file": "cases/ch14/CASE-01402.json",
+          "title": "政务云平台供方选择评分与合同索赔处理",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch15",
@@ -826,10 +941,64 @@
           "title": "合同变更与索赔"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 90,
+      "shards": [
+        {
+          "file": "bank/ch15/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch15/shard-02.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch15/shard-03.json",
+          "count": 10
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch15--15-1-合同基础与合同类型",
+          "file": "handbook/ch15/15-1-合同基础与合同类型.md",
+          "title": "合同基础与合同类型",
+          "topic": "15.1"
+        },
+        {
+          "id": "ch15--15-2-合同签订与履行",
+          "file": "handbook/ch15/15-2-合同签订与履行.md",
+          "title": "合同签订与履行",
+          "topic": "15.2"
+        },
+        {
+          "id": "ch15--15-3-合同变更与索赔",
+          "file": "handbook/ch15/15-3-合同变更与索赔.md",
+          "title": "合同变更与索赔",
+          "topic": "15.3"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-01501",
+          "file": "cases/ch15/CASE-01501.json",
+          "title": "某市数据中心项目FPIF合同结算争议",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-01502",
+          "file": "cases/ch15/CASE-01502.json",
+          "title": "某政务云平台项目的工期延误索赔与责任划分",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-01503",
+          "file": "cases/ch15/CASE-01503.json",
+          "title": "某企业ERP项目的合同变更与定金违约金争议",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch16",
@@ -852,10 +1021,53 @@
           "title": "变更管理与版本控制"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 75,
+      "shards": [
+        {
+          "file": "bank/ch16/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch16/shard-02.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch16--16-1-信息系统项目文档管理",
+          "file": "handbook/ch16/16-1-信息系统项目文档管理.md",
+          "title": "信息系统项目文档管理",
+          "topic": "16.1"
+        },
+        {
+          "id": "ch16--16-2-配置管理",
+          "file": "handbook/ch16/16-2-配置管理.md",
+          "title": "配置管理",
+          "topic": "16.2"
+        },
+        {
+          "id": "ch16--16-3-变更管理与版本控制",
+          "file": "handbook/ch16/16-3-变更管理与版本控制.md",
+          "title": "变更管理与版本控制",
+          "topic": "16.3"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-01601",
+          "file": "cases/ch16/CASE-01601.json",
+          "title": "未经批准直接改代码引发的版本混乱",
+          "score": 15,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-01602",
+          "file": "cases/ch16/CASE-01602.json",
+          "title": "文档归档移交与配置审计暴露的管理漏洞",
+          "score": 15,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch17",
