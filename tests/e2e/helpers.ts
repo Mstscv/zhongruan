@@ -1,5 +1,6 @@
 import { type Page, expect } from '@playwright/test'
-import { mkdirSync, readFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, statSync } from 'node:fs'
+import { join } from 'node:path'
 
 export const SHOT_DIR = 'tests/e2e/screenshots'
 mkdirSync(SHOT_DIR, { recursive: true })
@@ -8,15 +9,31 @@ export async function shot(page: Page, name: string) {
   await page.screenshot({ path: `${SHOT_DIR}/${name}.png` })
 }
 
-/** 读取 ch07 题库：stem → 题目（测试里用于算出正确/错误选项） */
-export function loadBank(): Map<string, { answer: string; id: string; options: string[] }> {
-  const arr = JSON.parse(readFileSync('content/bank/ch07/shard-01.json', 'utf8')) as Array<{
-    id: string
-    stem: string
-    answer: string
-    options: string[]
-  }>
-  return new Map(arr.map((q) => [q.stem, q]))
+interface BankQ {
+  id: string
+  stem: string
+  answer: string
+  options: string[]
+}
+
+let bankCache: Map<string, BankQ> | null = null
+
+/** 读取全题库（所有章所有 shard）：stem → 题目（测试里用于算出正确/错误选项） */
+export function loadBank(): Map<string, BankQ> {
+  if (bankCache) return bankCache
+  const map = new Map<string, BankQ>()
+  const bankRoot = 'content/bank'
+  for (const dir of readdirSync(bankRoot)) {
+    const dirPath = join(bankRoot, dir)
+    if (!statSync(dirPath).isDirectory()) continue
+    for (const file of readdirSync(dirPath)) {
+      if (!file.endsWith('.json')) continue
+      const arr = JSON.parse(readFileSync(join(dirPath, file), 'utf8')) as BankQ[]
+      for (const q of arr) map.set(q.stem, q)
+    }
+  }
+  bankCache = map
+  return map
 }
 
 /**

@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { CONTENT, listDirs, listFiles, readJSON } from './lib/fsutil'
-import { CaseSchema, QuestionSchema } from '../src/types/schema'
+import { type Question, CaseSchema, QuestionSchema } from '../src/types/schema'
 
 interface ChaptersFile {
   exam: { paperQuestions: number }
@@ -88,6 +88,7 @@ function main() {
         continue
       }
       const stat = perChapter.get(dir) ?? { n: 0, d: [0, 0, 0] }
+      const fileQs: Question[] = []
       arr.forEach((raw, i) => {
         const label = `${rel}[${i}]`
         const parsed = QuestionSchema.safeParse(raw)
@@ -107,6 +108,7 @@ function main() {
         if (new Set(q.options).size !== 4) err(`${label}: 选项不互异`)
         for (const opt of q.options) {
           if (opt.length > 60) warn(`${label}: 选项过长(${opt.length}字) ${opt.slice(0, 20)}…`)
+          if (/^[A-D]\s*[.、]/.test(opt)) err(`${label}: 选项文本含编号前缀（UI 会自动加）`)
         }
 
         // 泄题检查
@@ -114,6 +116,12 @@ function main() {
           if (q.stem.includes(w)) err(`${label}: 题干含泄题字样「${w}」`)
         }
         if (/^[A-D]\s*[.、]/.test(q.stem)) warn(`${label}: 题干疑似直接带选项编号`)
+
+        // 题干/解析长度（规范 §1）
+        if (q.stem.length > 80) err(`${label}: 题干 ${q.stem.length} 字，超过 80 字上限`)
+        if (q.explanation.length < 60 || q.explanation.length > 150) {
+          warn(`${label}: 解析 ${q.explanation.length} 字，规范要求 60–150 字`)
+        }
 
         // 归一化去重（全局）
         const key = normalize(q.stem)
@@ -129,8 +137,38 @@ function main() {
 
         stat.n++
         stat.d[q.difficulty - 1]++
+        fileQs.push(q)
         perChapter.set(dir, stat)
       })
+
+      // ── 片级风格规则（规范 §1：答案分布 / 连续模式 / 难度比）──
+      if (fileQs.length >= 10) {
+        const cnt: Record<string, number> = { A: 0, B: 0, C: 0, D: 0 }
+        for (const q of fileQs) cnt[q.answer]++
+        for (const [L, n] of Object.entries(cnt)) {
+          const r = n / fileQs.length
+          if (r < 0.2 || r > 0.3) {
+            err(`${rel}: 答案 ${L} 占 ${(r * 100).toFixed(0)}%（${n}/${fileQs.length}），超出 20%–30%`)
+          }
+        }
+        let run = 1
+        for (let i = 1; i < fileQs.length; i++) {
+          run = fileQs[i].answer === fileQs[i - 1].answer ? run + 1 : 1
+          if (run >= 3) {
+            err(`${rel}: 第 ${i + 1} 题起连续 3 个相同答案 ${fileQs[i].answer}`)
+            break
+          }
+        }
+        const allOrNone = fileQs.filter((q) =>
+          q.options.some((o) => /以上都对|以上都不对|都正确|都不正确/.test(o)),
+        ).length
+        if (allOrNone > 1) err(`${rel}: "以上都对/都不对"类选项 ${allOrNone} 题，全片限 1 题`)
+
+        const d3 = fileQs.filter((q) => q.difficulty === 3).length / fileQs.length
+        const d1 = fileQs.filter((q) => q.difficulty === 1).length / fileQs.length
+        if (d3 < 0.1) warn(`${rel}: 难度3 占 ${(d3 * 100).toFixed(0)}% < 10%`)
+        if (d1 < 0.2 || d1 > 0.4) warn(`${rel}: 难度1 占 ${(d1 * 100).toFixed(0)}%，偏离 3:5:2 约 30%`)
+      }
     }
   }
 
@@ -152,6 +190,7 @@ function main() {
   const caseIds = new Set<string>()
   const casesRoot = join(CONTENT, 'cases')
   const caseCountByChapter = new Map<string, number>()
+  const caseHintChecks: Array<{ rel: string; chapter: string; hint: string }> = []
   for (const dir of listDirs(casesRoot)) {
     if (!chapterById.has(dir)) {
       err(`content/cases/${dir} 不是已知章节`)
@@ -180,11 +219,16 @@ function main() {
       caseIds.add(c.id)
       const sum = c.questions.reduce((a, q) => a + q.score, 0)
       if (sum !== c.score) warn(`${rel}: 各问分值合计 ${sum} ≠ 总分 ${c.score}`)
+      if (c.scenario.length < 200 || c.scenario.length > 400) {
+        warn(`${rel}: 背景 ${c.scenario.length} 字，规范要求 200–400 字`)
+      }
+      if (c.level1Hint) caseHintChecks.push({ rel, chapter: dir, hint: c.level1Hint })
       caseCountByChapter.set(dir, (caseCountByChapter.get(dir) ?? 0) + 1)
     }
   }
 
   // ── 手册 ───────────────────────────────────
+  const handbookTopicsByChapter = new Map<string, Set<number>>()
   for (const dir of listDirs(join(CONTENT, 'handbook'))) {
     const ch = chapterById.get(dir)
     if (!ch) {
@@ -203,10 +247,18 @@ function main() {
       const topicCode = `${ch.no}.${Number(segs[1])}`
       if (!ch.topics.some((t) => t.code === topicCode)) {
         err(`handbook/${dir}/${file}: 节号 ${topicCode} 不在 topics 里`)
+      } else {
+        const set = handbookTopicsByChapter.get(dir) ?? new Set<number>()
+        set.add(Number(segs[1]))
+        handbookTopicsByChapter.set(dir, set)
       }
       const md = readJSONSafe(join(CONTENT, 'handbook', dir, file))
       if (md !== null && !/^#\s+/m.test(md)) err(`handbook/${dir}/${file}: 缺少一级标题`)
       if (md !== null) {
+        const plainLen = md.replace(/\s/g, '').length
+        if (plainLen < 700 || plainLen > 1600) {
+          warn(`handbook/${dir}/${file}: 正文约 ${plainLen} 字，规范模板要求 800–1500 字`)
+        }
         // CommonMark 坑：** 内侧紧贴括号 → 加粗失效、字面 ** 漏出
         // 只匹配实测会渲染失败的形态（**X**（Y）/ **X**： 等正常形式不报）
         const lines = md.split('\n')
@@ -218,6 +270,19 @@ function main() {
           }
         })
       }
+    }
+  }
+
+  // ── 案例 level1Hint 指向的手册节须存在 ─────
+  for (const c of caseHintChecks) {
+    const m = c.hint.match(/(\d+)\s*[.．]\s*(\d+)/)
+    if (!m) continue
+    const code = `${Number(m[1])}.${Number(m[2])}`
+    const ch = chapterById.get(c.chapter)
+    if (!ch || !ch.topics.some((t) => t.code === code)) {
+      warn(`${c.rel}: level1Hint 提到的 ${code} 不是本章知识点`)
+    } else if (!handbookTopicsByChapter.get(c.chapter)?.has(Number(m[2]))) {
+      warn(`${c.rel}: level1Hint 指向的手册 ${code} 节还不存在`)
     }
   }
 
