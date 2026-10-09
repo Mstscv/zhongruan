@@ -28,8 +28,8 @@ test('J4 手册阅读 → 滚到底自动标已读 → 目录圆点更新', asyn
   await expect(page.getByText(/已读完本节，自动标记/)).toBeVisible({ timeout: 6_000 })
   await expect(page.getByText('已读').first()).toBeVisible()
 
-  // 底部按钮（本章最后一节 → 读完手册）点击回目录
-  await page.getByRole('button', { name: /读完本章|下一节/ }).click()
+  // 从顶部返回目录（底部按钮是全局"下一节"，会跳到其他章，不能用它回目录）
+  await page.getByLabel('返回').click()
   await expect(page).toHaveURL(/#\/handbook$/)
 
   // 目录：第7章 已读 1/N 节 + 全局已读 1/总节数

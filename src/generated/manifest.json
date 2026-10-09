@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T17:02:11.350Z",
+  "generatedAt": "2026-10-09T17:39:51.543Z",
   "disclaimer": "本手册与题库由 AI 依据公开知识生成，属练习材料；知识点与考试安排请以《系统集成项目管理工程师教程（第3版）》及官方通知为准。",
   "exam": {
     "defaultDate": "2027-05-23",
@@ -420,10 +420,88 @@
           "title": "结束项目或阶段"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 100,
+      "shards": [
+        {
+          "file": "bank/ch05/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch05/shard-02.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch05/shard-03.json",
+          "count": 20
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch05--05-1-制定项目章程",
+          "file": "handbook/ch05/05-1-制定项目章程.md",
+          "title": "制定项目章程",
+          "topic": "5.1"
+        },
+        {
+          "id": "ch05--05-2-制定项目管理计划",
+          "file": "handbook/ch05/05-2-制定项目管理计划.md",
+          "title": "制定项目管理计划",
+          "topic": "5.2"
+        },
+        {
+          "id": "ch05--05-3-指导与管理项目工作",
+          "file": "handbook/ch05/05-3-指导与管理项目工作.md",
+          "title": "指导与管理项目工作",
+          "topic": "5.3"
+        },
+        {
+          "id": "ch05--05-4-管理项目知识",
+          "file": "handbook/ch05/05-4-管理项目知识.md",
+          "title": "管理项目知识",
+          "topic": "5.4"
+        },
+        {
+          "id": "ch05--05-5-监控项目工作",
+          "file": "handbook/ch05/05-5-监控项目工作.md",
+          "title": "监控项目工作",
+          "topic": "5.5"
+        },
+        {
+          "id": "ch05--05-6-实施整体变更控制",
+          "file": "handbook/ch05/05-6-实施整体变更控制.md",
+          "title": "实施整体变更控制",
+          "topic": "5.6"
+        },
+        {
+          "id": "ch05--05-7-结束项目或阶段",
+          "file": "handbook/ch05/05-7-结束项目或阶段.md",
+          "title": "结束项目或阶段",
+          "topic": "5.7"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00501",
+          "file": "cases/ch05/CASE-00501.json",
+          "title": "某市智慧政务平台项目因章程缺失引发的授权争议",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00502",
+          "file": "cases/ch05/CASE-00502.json",
+          "title": "某企业ERP升级项目的变更失控与整改",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00503",
+          "file": "cases/ch05/CASE-00503.json",
+          "title": "某医院信息系统集成项目的收尾遗漏项清单",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch06",
@@ -557,19 +635,57 @@
           "title": "控制进度"
         }
       ],
-      "questionCount": 35,
+      "questionCount": 115,
       "shards": [
         {
           "file": "bank/ch07/shard-01.json",
           "count": 35
+        },
+        {
+          "file": "bank/ch07/shard-02.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch07/shard-03.json",
+          "count": 40
         }
       ],
       "sections": [
+        {
+          "id": "ch07--07-1-规划进度管理",
+          "file": "handbook/ch07/07-1-规划进度管理.md",
+          "title": "规划进度管理",
+          "topic": "7.1"
+        },
+        {
+          "id": "ch07--07-2-定义活动",
+          "file": "handbook/ch07/07-2-定义活动.md",
+          "title": "定义活动",
+          "topic": "7.2"
+        },
         {
           "id": "ch07--07-3-排列活动顺序",
           "file": "handbook/ch07/07-3-排列活动顺序.md",
           "title": "排列活动顺序",
           "topic": "7.3"
+        },
+        {
+          "id": "ch07--07-4-估算活动持续时间",
+          "file": "handbook/ch07/07-4-估算活动持续时间.md",
+          "title": "估算活动持续时间",
+          "topic": "7.4"
+        },
+        {
+          "id": "ch07--07-5-制定进度计划",
+          "file": "handbook/ch07/07-5-制定进度计划.md",
+          "title": "制定进度计划",
+          "topic": "7.5"
+        },
+        {
+          "id": "ch07--07-6-控制进度",
+          "file": "handbook/ch07/07-6-控制进度.md",
+          "title": "控制进度",
+          "topic": "7.6"
         }
       ],
       "cases": [
@@ -577,6 +693,27 @@
           "id": "CASE-00701",
           "file": "cases/ch07/CASE-00701.json",
           "title": "某制造企业OA系统上线项目的进度网络分析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00702",
+          "file": "cases/ch07/CASE-00702.json",
+          "title": "某政务云平台项目的双代号网络与时差分析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00703",
+          "file": "cases/ch07/CASE-00703.json",
+          "title": "某办公系统集成项目的赶工决策与成本斜率分析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00704",
+          "file": "cases/ch07/CASE-00704.json",
+          "title": "某ERP升级项目的进度压缩、资源优化与基准管理",
           "score": 12,
           "questionCount": 3
         }
@@ -607,10 +744,77 @@
           "title": "控制成本与挣值管理"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 115,
+      "shards": [
+        {
+          "file": "bank/ch08/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch08/shard-02.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch08/shard-03.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch08--08-1-规划成本管理",
+          "file": "handbook/ch08/08-1-规划成本管理.md",
+          "title": "规划成本管理",
+          "topic": "8.1"
+        },
+        {
+          "id": "ch08--08-2-估算成本",
+          "file": "handbook/ch08/08-2-估算成本.md",
+          "title": "估算成本",
+          "topic": "8.2"
+        },
+        {
+          "id": "ch08--08-3-制定预算",
+          "file": "handbook/ch08/08-3-制定预算.md",
+          "title": "制定预算",
+          "topic": "8.3"
+        },
+        {
+          "id": "ch08--08-4-控制成本与挣值管理",
+          "file": "handbook/ch08/08-4-控制成本与挣值管理.md",
+          "title": "控制成本与挣值管理",
+          "topic": "8.4"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00801",
+          "file": "cases/ch08/CASE-00801.json",
+          "title": "某市政务云平台升级项目的挣值绩效分析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00802",
+          "file": "cases/ch08/CASE-00802.json",
+          "title": "某集团 ERP 项目的预算层级与储备归属",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00803",
+          "file": "cases/ch08/CASE-00803.json",
+          "title": "某智慧园区建设项目的完工预测与 TCPI 分析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00804",
+          "file": "cases/ch08/CASE-00804.json",
+          "title": "某数据中台项目的三点估算与参数估算投标报价",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch09",

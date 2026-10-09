@@ -46,7 +46,7 @@ src/views/        22 个页面（hash 路由，可部署任意静态路径 / fil
 
 ## 目录速览
 
-- `content/bank|handbook|cases/` — 按章内容（当前 ch07 试产：35 题 + 1 节手册 + 1 案例）
+- `content/bank|handbook|cases/` — 按章内容（**全量已满额**：19 章共 1630 题 + 83 节手册 + 39 案例，每章题量 = bankTarget）
 - `docs/内容生成规范.md` — 内容生产规范（题干/选项/解析/分布的机器可执行规则）
 - `tests/unit/` — 引擎与计划纯函数测试；`tests/e2e/` — Playwright 旅程 + 截图
 - `tools/` — validate / gen-manifest / stats 脚本（tsx 直跑 TS）
