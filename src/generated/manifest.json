@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T15:37:17.201Z",
+  "generatedAt": "2026-10-09T16:03:29.078Z",
   "disclaimer": "本手册与题库由 AI 依据公开知识生成，属练习材料；知识点与考试安排请以《系统集成项目管理工程师教程（第3版）》及官方通知为准。",
   "exam": {
     "defaultDate": "2027-05-23",
@@ -288,10 +288,71 @@
           "title": "控制范围"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 85,
+      "shards": [
+        {
+          "file": "bank/ch06/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch06/shard-02.json",
+          "count": 45
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch06--06-1-规划范围管理",
+          "file": "handbook/ch06/06-1-规划范围管理.md",
+          "title": "规划范围管理",
+          "topic": "6.1"
+        },
+        {
+          "id": "ch06--06-2-收集需求",
+          "file": "handbook/ch06/06-2-收集需求.md",
+          "title": "收集需求",
+          "topic": "6.2"
+        },
+        {
+          "id": "ch06--06-3-定义范围",
+          "file": "handbook/ch06/06-3-定义范围.md",
+          "title": "定义范围",
+          "topic": "6.3"
+        },
+        {
+          "id": "ch06--06-4-创建WBS",
+          "file": "handbook/ch06/06-4-创建WBS.md",
+          "title": "创建 WBS",
+          "topic": "6.4"
+        },
+        {
+          "id": "ch06--06-5-确认范围",
+          "file": "handbook/ch06/06-5-确认范围.md",
+          "title": "确认范围",
+          "topic": "6.5"
+        },
+        {
+          "id": "ch06--06-6-控制范围",
+          "file": "handbook/ch06/06-6-控制范围.md",
+          "title": "控制范围",
+          "topic": "6.6"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00601",
+          "file": "cases/ch06/CASE-00601.json",
+          "title": "智慧社区平台需求变更引发的范围蔓延",
+          "score": 18,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00602",
+          "file": "cases/ch06/CASE-00602.json",
+          "title": "WBS分解缺陷引发的验收争议",
+          "score": 18,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch07",
@@ -406,10 +467,59 @@
           "title": "质量管理工具与持续改进"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 85,
+      "shards": [
+        {
+          "file": "bank/ch09/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch09/shard-02.json",
+          "count": 45
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch09--09-1-规划质量管理",
+          "file": "handbook/ch09/09-1-规划质量管理.md",
+          "title": "规划质量管理",
+          "topic": "9.1"
+        },
+        {
+          "id": "ch09--09-2-管理质量",
+          "file": "handbook/ch09/09-2-管理质量.md",
+          "title": "管理质量",
+          "topic": "9.2"
+        },
+        {
+          "id": "ch09--09-3-控制质量",
+          "file": "handbook/ch09/09-3-控制质量.md",
+          "title": "控制质量",
+          "topic": "9.3"
+        },
+        {
+          "id": "ch09--09-4-质量管理工具与持续改进",
+          "file": "handbook/ch09/09-4-质量管理工具与持续改进.md",
+          "title": "质量管理工具与持续改进",
+          "topic": "9.4"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00901",
+          "file": "cases/ch09/CASE-00901.json",
+          "title": "某市医保结算系统软件测试缺陷率超标分析",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-00902",
+          "file": "cases/ch09/CASE-00902.json",
+          "title": "某省政务云平台运维质量成本核算与改进决策",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch10",
@@ -440,10 +550,65 @@
           "title": "控制资源"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 75,
+      "shards": [
+        {
+          "file": "bank/ch10/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch10/shard-02.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch10--10-1-规划资源管理",
+          "file": "handbook/ch10/10-1-规划资源管理.md",
+          "title": "规划资源管理",
+          "topic": "10.1"
+        },
+        {
+          "id": "ch10--10-2-估算活动资源",
+          "file": "handbook/ch10/10-2-估算活动资源.md",
+          "title": "估算活动资源",
+          "topic": "10.2"
+        },
+        {
+          "id": "ch10--10-3-获取资源",
+          "file": "handbook/ch10/10-3-获取资源.md",
+          "title": "获取资源",
+          "topic": "10.3"
+        },
+        {
+          "id": "ch10--10-4-建设与管理团队",
+          "file": "handbook/ch10/10-4-建设与管理团队.md",
+          "title": "建设与管理团队",
+          "topic": "10.4"
+        },
+        {
+          "id": "ch10--10-5-控制资源",
+          "file": "handbook/ch10/10-5-控制资源.md",
+          "title": "控制资源",
+          "topic": "10.5"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-01001",
+          "file": "cases/ch10/CASE-01001.json",
+          "title": "政务平台项目核心开发被抽调的资源冲突应对",
+          "score": 15,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-01002",
+          "file": "cases/ch10/CASE-01002.json",
+          "title": "保险核心系统重构团队震荡期的冲突处理",
+          "score": 15,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch11",
@@ -466,10 +631,53 @@
           "title": "监督沟通"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 75,
+      "shards": [
+        {
+          "file": "bank/ch11/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch11/shard-02.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch11--11-1-规划沟通管理",
+          "file": "handbook/ch11/11-1-规划沟通管理.md",
+          "title": "规划沟通管理",
+          "topic": "11.1"
+        },
+        {
+          "id": "ch11--11-2-管理沟通",
+          "file": "handbook/ch11/11-2-管理沟通.md",
+          "title": "管理沟通",
+          "topic": "11.2"
+        },
+        {
+          "id": "ch11--11-3-监督沟通",
+          "file": "handbook/ch11/11-3-监督沟通.md",
+          "title": "监督沟通",
+          "topic": "11.3"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-01101",
+          "file": "cases/ch11/CASE-01101.json",
+          "title": "跨部门信息不通导致需求返工的沟通改进",
+          "score": 12,
+          "questionCount": 3
+        },
+        {
+          "id": "CASE-01102",
+          "file": "cases/ch11/CASE-01102.json",
+          "title": "项目团队扩张后的沟通渠道优化与汇报机制设计",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch12",
