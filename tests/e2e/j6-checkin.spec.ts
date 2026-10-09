@@ -21,10 +21,19 @@ test('J6 完成今日任务 → 自动打卡 → 日历连续天数 +1', async (
   await expect(page.getByText(`阅读《${sectionTitle}》`)).toBeVisible()
   await shot(page, 'j6-01-home-tasks')
 
-  // 完成阅读任务（去手册标已读）
+  // 完成阅读任务（去手册标已读）。hash 跳转不重载页面，先等渲染再判断展开态：
+  // 目标小节已可见（默认展开章）就不点章按钮，否则点章按钮会展开它（重复点会误折叠）
   await page.goto('/#/handbook')
-  await page.getByRole('button', { name: chapterTitle, exact: false }).click()
-  await page.getByRole('button', { name: sectionTitle, exact: false }).click()
+  const sectionBtn = page.getByRole('button', { name: sectionTitle, exact: false })
+  const shown = await sectionBtn
+    .waitFor({ state: 'visible', timeout: 5_000 })
+    .then(() => true)
+    .catch(() => false)
+  if (!shown) {
+    await page.getByRole('button', { name: chapterTitle, exact: false }).click()
+    await expect(sectionBtn).toBeVisible()
+  }
+  await sectionBtn.click()
   await expect(page.locator('article.md-body')).toBeVisible()
   await page.getByRole('button', { name: /标记已读/ }).click()
   await expect(page.getByText(/已标记为已读/)).toBeVisible()
