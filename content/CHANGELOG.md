@@ -4,3 +4,7 @@
 
 - 2026-10-08 | 基建 | 19 章骨架 chapters.json + blueprint.json + 金标样题 5 道 | ✓ validate
 - 2026-10-08 | ch07 试产 | shard-01 35 题 + 手册 07-3 排列活动顺序 + CASE-00701 | ✓ validate
+- 2026-10-09 | ch03 量产 | 75 题（2 片）+ 手册 4 节 + CASE-00301 | ✓ validate
+- 2026-10-09 | ch12 量产 | 65 题（2 片）+ 手册 3 节 + CASE-01201 | ✓ validate
+- 2026-10-09 | ch18 量产 | 55 题（2 片）+ 手册 3 节 | ✓ validate
+- 2026-10-09 | ch19 量产 | 45 题（2 片）+ 手册 2 节 | ✓ validate

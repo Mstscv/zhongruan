@@ -1,0 +1,87 @@
+[
+  {
+    "id": "Q-C19-0041",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "The stakeholder register is best described as _____.",
+    "options": [
+      "a list of project stakeholders and their information",
+      "a log of all project changes and decisions made",
+      "a schedule of project milestones and key dates",
+      "a budget summary of project costs and reserves"
+    ],
+    "answer": "A",
+    "explanation": "干系人登记册（stakeholder register）记录干系人的身份、角色、期望和影响程度，是识别干系人过程的主要输出。B 项是变更日志，C 项是里程碑清单，D 项是成本预算汇总，都不是干系人登记册。",
+    "tags": ["stakeholder register", "干系人", "登记册"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0042",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "CAP theorem says a distributed system can guarantee only two of _____.",
+    "options": [
+      "capacity, availability, and performance",
+      "consistency, availability, and partition tolerance",
+      "confidentiality, integrity, and availability",
+      "consistency, accuracy, and privacy"
+    ],
+    "answer": "B",
+    "explanation": "CAP 定理指出分布式系统在一致性（Consistency）、可用性（Availability）和分区容错性（Partition tolerance）三者中最多同时保证两个。C 项是信息安全的 CIA 三要素，A、D 两项的词均非 CAP 原词。",
+    "tags": ["CAP theorem", "分布式", "一致性"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0043",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "Fast tracking the project schedule means _____.",
+    "options": [
+      "adding resources to shorten critical path activities",
+      "reducing the project scope to save time and cost",
+      "performing activities in parallel that were sequential",
+      "asking the team to work overtime every day"
+    ],
+    "answer": "C",
+    "explanation": "快速跟进（fast tracking）是把原本顺序执行的活动改为并行，从而压缩工期，但会增加返工风险。A 项是赶工（crashing），B 项缩减范围属于范围变更，D 项加班是赶工的资源手段之一。",
+    "tags": ["fast tracking", "快速跟进", "进度压缩"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0044",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "In object-oriented programming, inheritance allows a class to _____.",
+    "options": [
+      "hide all its internal data from other classes",
+      "be instantiated only once in a program",
+      "change its type at runtime dynamically",
+      "acquire properties and methods from another class"
+    ],
+    "answer": "D",
+    "explanation": "继承（inheritance）是子类自动获得父类的属性和方法，实现代码复用。A 项是封装（encapsulation），B 项说的是单例模式，C 项是多态（polymorphism）的表现，都不是继承的定义。",
+    "tags": ["inheritance", "继承", "面向对象"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0045",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 3,
+    "stem": "EV is $60,000 and PV is $50,000. The schedule variance (SV) equals _____.",
+    "options": [
+      "+$10,000, meaning ahead of schedule",
+      "−$10,000, meaning behind schedule",
+      "+$110,000, meaning well ahead of plan",
+      "$60,000, equal to the earned value"
+    ],
+    "answer": "A",
+    "explanation": "进度偏差 SV = EV − PV = 60000 − 50000 = +10000 美元，正值表示进度提前。B 项符号反了；C 项把 EV+PV 当成了偏差；D 项把挣值当成了进度偏差，都不符合 SV = EV − PV 公式。",
+    "tags": ["SV", "进度偏差", "挣值管理"],
+    "source": "AI 原创模拟"
+  }
+]

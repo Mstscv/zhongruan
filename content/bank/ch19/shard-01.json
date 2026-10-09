@@ -1,0 +1,682 @@
+[
+  {
+    "id": "Q-C19-0001",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "Which of the following best describes a work breakdown structure (WBS)?",
+    "options": [
+      "A hierarchy of project deliverables down to work packages",
+      "A timeline showing activity durations and key milestones",
+      "A register of identified risks and their response plans",
+      "An organization chart of the project team and roles"
+    ],
+    "answer": "A",
+    "explanation": "WBS（工作分解结构）是以可交付成果为导向的层级分解，从项目目标一直拆到工作包。B 项描述的是进度网络图或甘特图，C 项是风险登记册，D 项是项目组织结构图，均非 WBS 的定义。",
+    "tags": ["WBS", "范围管理", "Work Breakdown Structure"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0002",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "The critical path in a project network diagram is the path that _____.",
+    "options": [
+      "contains the most activities and the highest cost",
+      "has the longest duration and determines the project finish",
+      "has the shortest duration and the most total float",
+      "includes all activities that can be done in parallel"
+    ],
+    "answer": "B",
+    "explanation": "关键路径是网络图中总持续时间最长的路径，其长度决定项目总工期，路径上活动的总时差通常为零。A 项只看活动数量，C 项把关键路径与最短路径混淆，D 项并行执行不是关键路径的特征。",
+    "tags": ["critical path", "关键路径", "进度"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0003",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "A stakeholder is best defined as a person or group that _____.",
+    "options": [
+      "funds the project and signs the project charter",
+      "leads the project team on a day-to-day basis",
+      "performs the technical work of the project",
+      "is affected by or can affect the project outcome"
+    ],
+    "answer": "D",
+    "explanation": "干系人（stakeholder）是指能影响项目、被项目影响，或自认为会被项目影响的个人或群体。A 项只说了发起人，B 项是项目经理，C 项是团队成员，三者都只是干系人的一部分，范围过窄。",
+    "tags": ["stakeholder", "干系人", "定义"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0004",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "Uncontrolled scope expansion without adjusting time and cost is called _____.",
+    "options": [
+      "gold plating by the project team",
+      "scope verification by the customer",
+      "scope creep, harming overall control",
+      "progressive elaboration of the plan"
+    ],
+    "answer": "C",
+    "explanation": "范围蔓延（scope creep）指未经变更控制就扩大项目范围，不相应调整时间与成本，导致整体失控。A 项镀金是团队主动多做功能，B 项范围确认是客户验收成果，D 项渐进明细是正当的规划方式。",
+    "tags": ["scope creep", "范围蔓延", "范围管理"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0005",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "The group that reviews and approves change requests is called _____.",
+    "options": [
+      "change control board (CCB)",
+      "project management office (PMO)",
+      "quality assurance department",
+      "project sponsor and end users"
+    ],
+    "answer": "A",
+    "explanation": "变更控制委员会（CCB）是正式评审、批准或否决变更请求的机构。B 项 PMO 是项目管理办公室，提供组织级支持；C 项质量保证部门管质量体系；D 项发起人和用户是干系人，都不是变更审批的正式主体。",
+    "tags": ["CCB", "变更控制", "change control"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0006",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "In earned value management, the cost performance index (CPI) equals _____.",
+    "options": [
+      "earned value divided by planned value",
+      "earned value divided by actual cost",
+      "actual cost divided by planned value",
+      "planned value divided by actual cost"
+    ],
+    "answer": "B",
+    "explanation": "成本绩效指数 CPI = 挣值 EV ÷ 实际成本 AC，大于 1 表示成本节约。A 项 EV/PV 是进度绩效指数 SPI；C 项 AC/PV 与 D 项 PV/AC 均非标准公式，CPI 与 SPI 的分子都是挣值 EV。",
+    "tags": ["CPI", "挣值管理", "EVM"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0007",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "Which document lists identified project risks and their characteristics?",
+    "options": [
+      "the work breakdown structure (WBS)",
+      "the project scope statement document",
+      "the risk register of the project",
+      "the issue log and lessons learned"
+    ],
+    "answer": "C",
+    "explanation": "风险登记册（risk register）记录已识别风险的清单及描述、类别、概率、影响和应对措施。A 项 WBS 分解的是工作范围，B 项范围说明书描述项目边界，D 项问题日志记录已发生的问题，都不负责登记风险。",
+    "tags": ["risk register", "风险登记册", "风险"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0008",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "Sending an RFP to vendors and selecting a supplier belongs to _____.",
+    "options": [
+      "project procurement management",
+      "project quality management",
+      "project resource management",
+      "project communications management"
+    ],
+    "answer": "A",
+    "explanation": "向供应商发出建议邀请书（RFP）并选择供应商，属于项目采购管理。B 项质量管理关注产品与过程质量，C 项资源管理主要管团队与实物资源，D 项沟通管理管信息传递，都不涉及从外部获取商品与服务。",
+    "tags": ["procurement", "采购", "RFP"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0009",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "A project milestone typically has which of the following characteristics?",
+    "options": [
+      "It requires a large amount of resources to complete",
+      "It has a long duration and measurable output",
+      "It is an optional task that can be skipped easily",
+      "It marks a key event and has zero duration"
+    ],
+    "answer": "D",
+    "explanation": "里程碑（milestone）是项目中的重要时间点或事件，持续时间为 0，本身不消耗资源，用于标记阶段性成果。A、B 两项把它当成了普通任务；C 项说成可跳过的可选任务，与里程碑的标志性作用相悖。",
+    "tags": ["milestone", "里程碑", "定义活动"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0010",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 3,
+    "stem": "A project has 6 team members. How many communication channels exist?",
+    "options": [
+      "12 channels",
+      "15 channels",
+      "21 channels",
+      "30 channels"
+    ],
+    "answer": "B",
+    "explanation": "沟通渠道数 = n(n−1)/2，其中 n = 6，代入得 6 × 5 ÷ 2 = 15 条。A 项 12 是 6 × 2 的误算；C 项 21 是 7 人时的渠道数；D 项 30 是 n(n−1) 未除以 2 的结果。",
+    "tags": ["沟通渠道", "communication channels", "计算"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0011",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "TCP/IP is best described as a suite of _____.",
+    "options": [
+      "hardware devices used for network routing",
+      "programming languages used for web apps",
+      "protocols for data communication on networks",
+      "database tools used for data storage"
+    ],
+    "answer": "C",
+    "explanation": "TCP/IP 是互联网基础的协议族，定义了数据如何在网络中封装、寻址和传输。A 项指的是路由器等硬件设备，B 项是编程语言，D 项是数据库工具，都不是协议族的定义。",
+    "tags": ["TCP/IP", "协议", "网络"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0012",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "Which of the following best describes cloud computing?",
+    "options": [
+      "Building private data centers for one company",
+      "Storing all data on local hard drives only",
+      "Using desktop software without any network",
+      "Accessing computing resources on demand via network"
+    ],
+    "answer": "D",
+    "explanation": "云计算是通过网络按需获取计算资源（服务器、存储、应用等），通常按使用量计费。A 项自建机房属于传统 IT 架构，B 项本地存储是离线模式，C 项无网络使用桌面软件更不属于云计算。",
+    "tags": ["cloud computing", "云计算", "信息技术"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0013",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "Encryption is used in information security mainly to ensure _____.",
+    "options": [
+      "that data is always available to every user",
+      "confidentiality by making data unreadable without a key",
+      "that hardware devices run faster than before",
+      "that data cannot be compressed or archived"
+    ],
+    "answer": "B",
+    "explanation": "加密通过算法把明文变成密文，只有持有密钥者才能还原，主要保障机密性。A 项说的是可用性，C 项性能与加密无关，D 项压缩归档也不属于加密目的；加密有时反而会增加处理开销。",
+    "tags": ["encryption", "加密", "机密性"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0014",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "In a relational database, data is organized into _____.",
+    "options": [
+      "tables made up of rows and columns",
+      "files stored in a folder tree",
+      "documents in a word processor",
+      "images and audio files in a gallery"
+    ],
+    "answer": "A",
+    "explanation": "关系数据库把数据组织成表（table），表由行（记录）和列（字段）构成，表之间通过键建立关联。B 项是文件系统的组织方式，C、D 两项是办公软件和媒体文件的存储形式，与关系模型无关。",
+    "tags": ["database", "数据库", "关系模型"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0015",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "A firewall in a network primarily functions to _____.",
+    "options": [
+      "speed up data transmission between two hosts",
+      "store backups of important business data",
+      "filter network traffic based on security rules",
+      "assign IP addresses to computers automatically"
+    ],
+    "answer": "C",
+    "explanation": "防火墙按安全策略过滤网络流量，允许或阻止特定通信，是网络安全的边界设备。A 项加速传输是广域网优化，B 项存备份是存储系统，D 项自动分配 IP 是 DHCP 服务器的功能。",
+    "tags": ["firewall", "防火墙", "网络安全"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0016",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "An API is best described as _____.",
+    "options": [
+      "a type of computer virus or malware",
+      "a hardware cable for connecting devices",
+      "a coding style guide for developers",
+      "an interface for software components to interact"
+    ],
+    "answer": "D",
+    "explanation": "API（应用程序编程接口）定义了软件组件之间如何调用和交换数据，是系统集成的桥梁。A 项是病毒或恶意软件，B 项是连接设备的硬件线缆，C 项是编码规范，都不是接口的定义。",
+    "tags": ["API", "接口", "软件集成"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0017",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "HTTPS differs from HTTP mainly in that HTTPS _____.",
+    "options": [
+      "encrypts data in transit using SSL or TLS",
+      "transmits data at a much higher speed",
+      "does not need a web server to work",
+      "only works on local area networks"
+    ],
+    "answer": "A",
+    "explanation": "HTTPS 在 HTTP 基础上加入 SSL/TLS 加密，保证传输过程的机密性和完整性。B 项速度与是否加密无关，C 项仍需要 Web 服务器，D 项 HTTPS 同样用于互联网，并不限于局域网。",
+    "tags": ["HTTPS", "SSL/TLS", "加密传输"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0018",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "The SQL command used to retrieve data from a database is _____.",
+    "options": [
+      "INSERT, which adds new records to a table",
+      "UPDATE, which modifies existing records",
+      "SELECT, which queries and returns data",
+      "DELETE, which removes records from a table"
+    ],
+    "answer": "C",
+    "explanation": "SELECT 语句用于从数据库中查询并返回数据，是 SQL 的检索命令。A 项 INSERT 用于插入新记录，B 项 UPDATE 用于修改记录，D 项 DELETE 用于删除记录，三者都不负责查询返回。",
+    "tags": ["SQL", "SELECT", "数据库"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0019",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "The process of verifying who a user is before granting access is called _____.",
+    "options": [
+      "authorization, which checks what one can do",
+      "authentication, which verifies one's identity",
+      "accounting, which records user activity",
+      "encryption, which protects data content"
+    ],
+    "answer": "B",
+    "explanation": "认证（authentication）是验证用户身份的过程，回答你是谁。A 项授权（authorization）是验证通过后决定你能做什么；C 项审计是 AAA 模型中的记录环节；D 项加密保护数据内容，与身份验证无关。",
+    "tags": ["authentication", "认证", "信息安全"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0020",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "Virtualization technology allows a single physical server to _____.",
+    "options": [
+      "run only one operating system at a time",
+      "eliminate the need for any storage device",
+      "connect to the network without any cables",
+      "host multiple virtual machines simultaneously"
+    ],
+    "answer": "D",
+    "explanation": "虚拟化把一台物理服务器划分为多台虚拟机，各自运行独立的操作系统，提高资源利用率。A 项说只能跑一个系统恰与虚拟化相反；B 项存储设备、C 项网络连接都不是虚拟化的直接作用。",
+    "tags": ["virtualization", "虚拟化", "服务器"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0021",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 3,
+    "stem": "If CPI is 0.8 and SPI is 1.1, which statement is correct?",
+    "options": [
+      "The project is over budget but ahead of schedule",
+      "The project is under budget and ahead of schedule",
+      "The project is over budget and behind schedule",
+      "The project is under budget but behind schedule"
+    ],
+    "answer": "A",
+    "explanation": "CPI = EV/AC = 0.8 < 1，说明成本超支；SPI = EV/PV = 1.1 > 1，说明进度超前。B 项把 CPI < 1 误读为节约；C、D 两项对 SPI > 1 的判断都错了，SPI 大于 1 表示提前而非落后。",
+    "tags": ["CPI", "SPI", "挣值分析"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0022",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "Delivering extra features that the customer did not request is called _____.",
+    "options": [
+      "scope validation and quality control",
+      "gold plating and should be avoided",
+      "progressive elaboration of scope",
+      "requirements traceability management"
+    ],
+    "answer": "B",
+    "explanation": "镀金（gold plating）是主动做客户未要求的额外功能，虽出于好意却可能增加成本、引入缺陷，应当避免。A 项范围确认是客户验收成果，C 项渐进明细是正当的规划方式，D 项需求跟踪也不含多做功能。",
+    "tags": ["gold plating", "镀金", "范围"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0023",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "In a RACI matrix, the letter R stands for _____.",
+    "options": [
+      "Review, the person who checks the work",
+      "Report, the person who documents results",
+      "Responsible, the one who does the work",
+      "Resource, the one who provides funding"
+    ],
+    "answer": "C",
+    "explanation": "RACI 中 R 是 Responsible（执行者），即实际完成工作的人。A 项 Reviewer 不是 RACI 的标准字母；B 项 Report 也不在 RACI 中；D 项 Resource 混淆了资源与角色。其余字母是 A（批准）、C（咨询）、I（知会）。",
+    "tags": ["RACI", "责任矩阵", "团队角色"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0024",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 3,
+    "stem": "The contingency reserve in project cost management is budget _____.",
+    "options": [
+      "already spent on completed project work",
+      "for unknown-unknown risks outside the baseline",
+      "added as profit margin to the total budget",
+      "for identified risks and included in the baseline"
+    ],
+    "answer": "D",
+    "explanation": "应急储备（contingency reserve）针对已识别风险预留，包含在成本基准内，由项目经理在风险发生时使用。B 项是管理储备的定义，应对未知风险且不在基准内；A 项是已发生成本；C 项利润与储备无关。",
+    "tags": ["contingency reserve", "应急储备", "成本管理"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0025",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "Acceptance criteria are defined to _____.",
+    "options": [
+      "estimate the cost of project deliverables",
+      "define when deliverables can be accepted",
+      "identify all project risks and threats",
+      "organize the project team structure"
+    ],
+    "answer": "B",
+    "explanation": "验收标准（acceptance criteria）定义了可交付成果被客户或发起人接受所必须满足的条件。A 项是估算成本，C 项是识别风险，D 项是设计组织结构，都不属于验收标准的用途。",
+    "tags": ["acceptance criteria", "验收标准", "可交付成果"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0026",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 1,
+    "stem": "Lessons learned documents are most useful for _____.",
+    "options": [
+      "future projects and the rest of the current project",
+      "calculating team members' annual bonuses",
+      "justifying budget increases to the sponsor",
+      "replacing formal project status reports"
+    ],
+    "answer": "A",
+    "explanation": "经验教训（lessons learned）文档记录项目中的成功经验与失败教训，可供当前项目后半段和未来项目借鉴。B 项奖金核算、C 项预算申请、D 项状态汇报都不是经验教训的主要用途。",
+    "tags": ["lessons learned", "经验教训", "组织过程资产"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0027",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "A statement of work (SOW) typically includes all of the following EXCEPT _____.",
+    "options": [
+      "a description of the work to be performed",
+      "the period of performance and deliverables",
+      "the location where the work will be done",
+      "the project team's individual salary details"
+    ],
+    "answer": "D",
+    "explanation": "工作说明书（SOW）描述采购工作范围、可交付成果、执行地点和履约期限等内容。D 项团队个人薪资明细属于保密的人力资源信息，不会写进面向供应商的 SOW。",
+    "tags": ["SOW", "工作说明书", "采购"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0028",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 3,
+    "stem": "Which risk analysis technique uses a computer model with random sampling?",
+    "options": [
+      "Delphi technique with expert judgment",
+      "SWOT analysis of the project context",
+      "Monte Carlo simulation of project outcomes",
+      "root cause analysis using a fishbone diagram"
+    ],
+    "answer": "C",
+    "explanation": "蒙特卡洛模拟通过大量随机抽样模拟项目结果的概率分布，属于定量风险分析。A 项德尔菲法是专家匿名评估，B 项 SWOT 分析优势劣势，D 项鱼骨图做根因分析，都不使用随机抽样模型。",
+    "tags": ["Monte Carlo", "蒙特卡洛", "风险分析"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0029",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "The process of comparing actual results with the plan is called _____.",
+    "options": [
+      "monitoring and controlling project work",
+      "developing the project management plan",
+      "collecting requirements from stakeholders",
+      "closing the project or a project phase"
+    ],
+    "answer": "A",
+    "explanation": "监控项目工作就是将实际绩效与计划基准对比，发现偏差并推动纠正或预防措施。B 项是编制计划，C 项是收集需求，D 项是项目收尾，都不涉及实际结果与基准的比较分析。",
+    "tags": ["monitoring and controlling", "监控", "绩效"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0030",
+    "chapter": "ch19",
+    "topic": "19.1",
+    "difficulty": 2,
+    "stem": "Configuration management is primarily concerned with _____.",
+    "options": [
+      "motivating team members to improve performance",
+      "estimating project costs accurately",
+      "managing formal change requests to the project",
+      "tracking versions and integrity of product items"
+    ],
+    "answer": "D",
+    "explanation": "配置管理关注产品配置项的识别、版本控制和完整性，确保产品与文档始终一致。C 项说的是整体变更控制，管理的是项目层面的变更请求，是强干扰项；A 项是团队激励，B 项是成本估算。",
+    "tags": ["configuration management", "配置管理", "版本控制"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0031",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "What does DNS do in a computer network?",
+    "options": [
+      "Encrypts data packets during transmission",
+      "Translates domain names to IP addresses",
+      "Stores files for later retrieval by users",
+      "Provides power to network hardware devices"
+    ],
+    "answer": "B",
+    "explanation": "DNS（域名系统）把便于记忆的域名解析为 IP 地址，相当于互联网的地址簿。A 项是加密协议的功能，C 项是文件服务器，D 项供电与 DNS 无关。",
+    "tags": ["DNS", "域名系统", "网络"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0032",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "A load balancer distributes incoming requests mainly to _____.",
+    "options": [
+      "reduce the need for any network security",
+      "store data on multiple backup servers",
+      "share traffic across several backend servers",
+      "compress data before sending it to users"
+    ],
+    "answer": "C",
+    "explanation": "负载均衡器把请求分发到多台后端服务器，避免单点过载，提高吞吐量和可用性。A 项安全不是它的直接目的，B 项是备份系统，D 项数据压缩是编码优化，都不是负载均衡的核心功能。",
+    "tags": ["load balancer", "负载均衡", "高可用"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0033",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 3,
+    "stem": "In a relational database, a primary key must be _____.",
+    "options": [
+      "unique for each record and never null",
+      "duplicated across multiple tables",
+      "a text field of at least 255 characters",
+      "automatically generated by the user"
+    ],
+    "answer": "A",
+    "explanation": "主键用于唯一标识表中每条记录，必须满足唯一性且不能为空。B 项可以重复的是普通字段；C 项长度并非主键的规定；D 项主键可以系统生成也可以业务指定，核心约束是唯一且非空。",
+    "tags": ["primary key", "主键", "数据库"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0034",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "Which layer of the OSI model is responsible for end-to-end delivery?",
+    "options": [
+      "the physical layer for bit transmission",
+      "the data link layer for local framing",
+      "the application layer for user services",
+      "the transport layer for reliable delivery"
+    ],
+    "answer": "D",
+    "explanation": "OSI 模型的传输层负责端到端的数据传输与可靠性控制，典型协议是 TCP。A 物理层传输比特流，B 数据链路层负责局域网帧传递，C 应用层直接面向用户服务，都不承担端到端交付职责。",
+    "tags": ["OSI", "transport layer", "传输层"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0035",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "RPO in disaster recovery planning refers to the maximum acceptable _____.",
+    "options": [
+      "time to restore services after an outage",
+      "data loss measured backward from a disaster",
+      "cost of building a backup data center",
+      "number of servers that can fail at once"
+    ],
+    "answer": "B",
+    "explanation": "RPO（恢复点目标）是灾难发生时可接受的最大数据丢失量，用时间衡量，看数据能回退多久。A 项是 RTO（恢复时间目标），C 项是成本估算，D 项故障数量与 RPO 无关。",
+    "tags": ["RPO", "灾难恢复", "recovery"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0036",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "A compiler differs from an interpreter in that a compiler _____.",
+    "options": [
+      "executes code directly without any translation",
+      "is used only for writing web pages",
+      "translates the whole program before execution",
+      "cannot detect syntax errors in the source"
+    ],
+    "answer": "C",
+    "explanation": "编译器把整个源程序翻译成目标代码后再执行，解释器则边翻译边执行。A 项说的是直接执行，两者都需要翻译；B 项网页不是编译器的专属领域；D 项编译器恰恰擅长在编译阶段发现语法错误。",
+    "tags": ["compiler", "编译器", "编程基础"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0037",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 3,
+    "stem": "Containers such as Docker differ from virtual machines mainly because _____.",
+    "options": [
+      "containers cannot be moved between hosts",
+      "containers each need a full guest OS",
+      "containers are slower than virtual machines",
+      "containers share the host OS kernel and are lighter"
+    ],
+    "answer": "D",
+    "explanation": "容器直接共享宿主机操作系统内核，只打包应用和依赖，比虚拟机更轻量、启动更快。A 项容器可跨主机迁移；B 项需要完整客户机操作系统的是虚拟机；C 项容器启动通常更快而非更慢。",
+    "tags": ["container", "Docker", "虚拟机"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0038",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 2,
+    "stem": "A phishing attack typically tricks users into _____.",
+    "options": [
+      "revealing passwords or sensitive information",
+      "physically damaging hardware components",
+      "flooding the network with huge traffic",
+      "encrypting files without keeping any key"
+    ],
+    "answer": "A",
+    "explanation": "网络钓鱼（phishing）通过伪装邮件或网站诱骗用户主动交出密码、账号等敏感信息。B 项是物理破坏，C 项是拒绝服务攻击，D 项是勒索软件的行为，都不是钓鱼的典型手段。",
+    "tags": ["phishing", "网络钓鱼", "信息安全"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0039",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 1,
+    "stem": "Middleware is software that primarily _____.",
+    "options": [
+      "replaces the operating system kernel",
+      "connects applications and enables integration",
+      "designs user interface graphics and colors",
+      "compiles source code into machine language"
+    ],
+    "answer": "B",
+    "explanation": "中间件（middleware）位于操作系统与应用之间，提供通信、数据交换等服务，帮助异构系统集成。A 项内核是操作系统的核心组件；C 项界面设计属于 UI 工作；D 项编译是编译器的功能。",
+    "tags": ["middleware", "中间件", "系统集成"],
+    "source": "AI 原创模拟"
+  },
+  {
+    "id": "Q-C19-0040",
+    "chapter": "ch19",
+    "topic": "19.2",
+    "difficulty": 3,
+    "stem": "A cryptographic hash function is designed to be _____.",
+    "options": [
+      "reversible with any public key",
+      "slow on large input data sets",
+      "one-way and collision-resistant",
+      "identical for different inputs"
+    ],
+    "answer": "C",
+    "explanation": "哈希函数是单向的：由摘要无法反推原文，且不同输入应极难产生相同摘要（抗碰撞性）。A 项可逆是加密解密的特征；B 项好的哈希反而要求高效；D 项不同输入相同输出正是碰撞，不安全。",
+    "tags": ["hash function", "哈希", "密码学"],
+    "source": "AI 原创模拟"
+  }
+]

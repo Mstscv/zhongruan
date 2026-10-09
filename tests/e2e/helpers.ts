@@ -60,6 +60,20 @@ export async function answerCurrent(page: Page, correct: boolean) {
   await page.getByTestId('option').nth(pick).click()
 }
 
+/** 从 manifest 读手册结构（测试断言动态推导，内容增减不破测试） */
+export function handbookIndex(): {
+  totalSections: number
+  chapters: Array<{ id: string; title: string; sections: Array<{ title: string }> }>
+} {
+  const manifest = JSON.parse(readFileSync('src/generated/manifest.json', 'utf8')) as {
+    chapters: Array<{ id: string; title: string; sections: Array<{ title: string }> }>
+  }
+  return {
+    totalSections: manifest.chapters.reduce((n, c) => n + c.sections.length, 0),
+    chapters: manifest.chapters,
+  }
+}
+
 /** 新会话默认空白 localStorage，直接进入引导页 */
 export async function gotoOnboard(page: Page) {
   await page.goto('/#/onboard')

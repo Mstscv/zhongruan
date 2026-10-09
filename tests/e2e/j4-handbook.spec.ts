@@ -1,16 +1,21 @@
 import { test, expect } from '@playwright/test'
-import { finishOnboard, shot } from './helpers'
+import { finishOnboard, handbookIndex, shot } from './helpers'
 
 test('J4 手册阅读 → 滚到底自动标已读 → 目录圆点更新', async ({ page }) => {
   await finishOnboard(page)
+
+  // 从 manifest 动态推导：读第7章的最后一节（最后一节按钮是"读完本章"→回目录）
+  const { totalSections, chapters } = handbookIndex()
+  const ch07 = chapters.find((c) => c.id === 'ch07')!
+  const lastTitle = ch07.sections[ch07.sections.length - 1].title
 
   await page.goto('/#/handbook')
   await expect(page.getByText('知识点手册')).toBeVisible()
   await shot(page, 'j4-01-handbook-index')
 
-  // 展开第7章（默认展开第一章/最近阅读章），进入唯一小节
+  // 展开第7章，进入本章最后一节
   await page.getByRole('button', { name: /项目进度管理/ }).click()
-  await page.getByRole('button', { name: /排列活动顺序/ }).click()
+  await page.getByRole('button', { name: lastTitle }).click()
   await expect(page.locator('article.md-body')).toBeVisible()
   await expect(page.getByText('未读')).toBeVisible()
   // 正文有实质内容
@@ -27,8 +32,8 @@ test('J4 手册阅读 → 滚到底自动标已读 → 目录圆点更新', asyn
   await page.getByRole('button', { name: /读完本章|下一节/ }).click()
   await expect(page).toHaveURL(/#\/handbook$/)
 
-  // 目录：第7章 1/1 节已读 + 总进度 1/1
-  await expect(page.getByText('1/1 节已读')).toBeVisible()
-  await expect(page.getByText(/已读 1\/1 节/)).toBeVisible()
+  // 目录：第7章 已读 1/N 节 + 全局已读 1/总节数
+  await expect(page.getByText(`1/${ch07.sections.length} 节已读`)).toBeVisible()
+  await expect(page.getByText(new RegExp(`已读 1/${totalSections} 节`))).toBeVisible()
   await shot(page, 'j4-03-index-after-read')
 })

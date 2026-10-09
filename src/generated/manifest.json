@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T02:31:38.836Z",
+  "generatedAt": "2026-10-09T15:37:17.201Z",
   "disclaimer": "本手册与题库由 AI 依据公开知识生成，属练习材料；知识点与考试安排请以《系统集成项目管理工程师教程（第3版）》及官方通知为准。",
   "exam": {
     "defaultDate": "2027-05-23",
@@ -128,10 +128,52 @@
           "title": "信息系统工程监理"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 75,
+      "shards": [
+        {
+          "file": "bank/ch03/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch03/shard-02.json",
+          "count": 35
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch03--03-1-信息系统集成概述",
+          "file": "handbook/ch03/03-1-信息系统集成概述.md",
+          "title": "信息系统集成概述",
+          "topic": "3.1"
+        },
+        {
+          "id": "ch03--03-2-信息系统集成资质管理",
+          "file": "handbook/ch03/03-2-信息系统集成资质管理.md",
+          "title": "信息系统集成资质管理",
+          "topic": "3.2"
+        },
+        {
+          "id": "ch03--03-3-信息系统运维与服务管理",
+          "file": "handbook/ch03/03-3-信息系统运维与服务管理.md",
+          "title": "信息系统运维与服务管理",
+          "topic": "3.3"
+        },
+        {
+          "id": "ch03--03-4-信息系统工程监理",
+          "file": "handbook/ch03/03-4-信息系统工程监理.md",
+          "title": "信息系统工程监理",
+          "topic": "3.4"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-00301",
+          "file": "cases/ch03/CASE-00301.json",
+          "title": "政务云集成与运维服务合同履约争议",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch04",
@@ -450,10 +492,46 @@
           "title": "管理与监督干系人参与"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
-      "cases": []
+      "questionCount": 65,
+      "shards": [
+        {
+          "file": "bank/ch12/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch12/shard-02.json",
+          "count": 25
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch12--12-1-识别干系人",
+          "file": "handbook/ch12/12-1-识别干系人.md",
+          "title": "识别干系人",
+          "topic": "12.1"
+        },
+        {
+          "id": "ch12--12-2-规划干系人参与",
+          "file": "handbook/ch12/12-2-规划干系人参与.md",
+          "title": "规划干系人参与",
+          "topic": "12.2"
+        },
+        {
+          "id": "ch12--12-3-管理与监督干系人参与",
+          "file": "handbook/ch12/12-3-管理与监督干系人参与.md",
+          "title": "管理与监督干系人参与",
+          "topic": "12.3"
+        }
+      ],
+      "cases": [
+        {
+          "id": "CASE-01201",
+          "file": "cases/ch12/CASE-01201.json",
+          "title": "某市医保信息平台升级项目的干系人管理",
+          "score": 12,
+          "questionCount": 3
+        }
+      ]
     },
     {
       "id": "ch13",
@@ -630,9 +708,37 @@
           "title": "流程管理与战略管理"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
+      "questionCount": 55,
+      "shards": [
+        {
+          "file": "bank/ch18/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch18/shard-02.json",
+          "count": 15
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch18--18-1-项目管理成熟度模型",
+          "file": "handbook/ch18/18-1-项目管理成熟度模型.md",
+          "title": "项目管理成熟度模型",
+          "topic": "18.1"
+        },
+        {
+          "id": "ch18--18-2-项目集与项目组合管理",
+          "file": "handbook/ch18/18-2-项目集与项目组合管理.md",
+          "title": "项目集与项目组合管理",
+          "topic": "18.2"
+        },
+        {
+          "id": "ch18--18-3-流程管理与战略管理",
+          "file": "handbook/ch18/18-3-流程管理与战略管理.md",
+          "title": "流程管理与战略管理",
+          "topic": "18.3"
+        }
+      ],
       "cases": []
     },
     {
@@ -653,9 +759,31 @@
           "title": "信息技术专业英语"
         }
       ],
-      "questionCount": 0,
-      "shards": [],
-      "sections": [],
+      "questionCount": 45,
+      "shards": [
+        {
+          "file": "bank/ch19/shard-01.json",
+          "count": 40
+        },
+        {
+          "file": "bank/ch19/shard-02.json",
+          "count": 5
+        }
+      ],
+      "sections": [
+        {
+          "id": "ch19--19-1-项目管理专业英语",
+          "file": "handbook/ch19/19-1-项目管理专业英语.md",
+          "title": "项目管理专业英语",
+          "topic": "19.1"
+        },
+        {
+          "id": "ch19--19-2-信息技术专业英语",
+          "file": "handbook/ch19/19-2-信息技术专业英语.md",
+          "title": "信息技术专业英语",
+          "topic": "19.2"
+        }
+      ],
       "cases": []
     }
   ]

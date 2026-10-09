@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { finishOnboard, shot } from './helpers'
+import { finishOnboard, handbookIndex, shot } from './helpers'
 
 test('J7 导出备份 → 清空数据 → 导入恢复全部进度', async ({ page }) => {
   await finishOnboard(page)
@@ -50,8 +50,8 @@ test('J7 导出备份 → 清空数据 → 导入恢复全部进度', async ({ p
   await page.getByRole('button', { name: '确认覆盖恢复' }).click()
   await expect(page.getByText(/备份已恢复/)).toBeVisible()
 
-  // 恢复验证：手册已读 1 节回来了
+  // 恢复验证：手册已读 1 节回来了（全局进度从 manifest 动态推导）
   await page.goto('/#/handbook')
-  await expect(page.getByText(/已读 1\/1 节/)).toBeVisible()
+  await expect(page.getByText(new RegExp(`已读 1/${handbookIndex().totalSections} 节`))).toBeVisible()
   await shot(page, 'j7-03-restored')
 })
