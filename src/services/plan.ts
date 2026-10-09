@@ -4,7 +4,7 @@
  */
 import type { DayTask, Progress } from '@/types/schema'
 import { getManifest } from '@/services/contentLoader'
-import { addDays, daysBetween, todayStr } from '@/utils/date'
+import { addDays, daysBetween, localDateOf, todayStr } from '@/utils/date'
 import { chapterOfQid } from '@/services/quizEngine'
 
 export type Phase = 'basic' | 'reinforce' | 'sprint' | 'final'
@@ -56,6 +56,32 @@ export function phaseSegments(profile: Progress['profile']): PhaseSegment[] {
 }
 
 /* ── 每日任务生成 ─────────────────────────────── */
+
+/* ── 当前刷题章节 ── */
+
+/**
+ * 在有题的章里选"做题进度最低"的章作为当前刷题章（进度 = 本章已做/题量）。
+ * 并列时取章序靠前者。随用户推进自动轮换到下一章，多章上线后不会永远停在第一章。
+ */
+export function pickCurrentChapter<T extends { id: string; questionCount: number }>(
+  chapters: T[],
+  progress: Progress,
+): T | null {
+  const withQ = chapters.filter((c) => c.questionCount > 0)
+  if (!withQ.length) return null
+  const doneOf = (id: string) =>
+    Object.keys(progress.quiz.answered).filter((qid) => chapterOfQid(qid) === id).length
+  let best = withQ[0]
+  let bestRatio = Infinity
+  for (const ch of withQ) {
+    const ratio = doneOf(ch.id) / ch.questionCount
+    if (ratio < bestRatio) {
+      best = ch
+      bestRatio = ratio
+    }
+  }
+  return best
+}
 
 let seq = 0
 function task(
@@ -117,14 +143,14 @@ export function generateDayTasks(
       if (picked >= readCount) break
     }
     // 当前刷题章节：按章序取第一个有题的章（后续可按掌握度智能排序）
-    const currentCh = withQuestions[0]
+    const currentCh = pickCurrentChapter(chapters, progress)
     if (currentCh) {
       const n = profile.dailyMinutes >= 90 ? 30 : 20
       tasks.push(task('quiz', `《${currentCh.title}》章节刷题 ${n} 题`, Math.round(n * 1.2), n, { chapter: currentCh.id }))
     }
     if (hasWrong) tasks.push(task('wrong', '错题重练 10 题', 15, 10))
   } else if (phase === 'reinforce') {
-    const currentCh = withQuestions[0]
+    const currentCh = pickCurrentChapter(chapters, progress)
     if (currentCh) {
       tasks.push(task('quiz', `《${currentCh.title}》强化刷题 30 题`, 35, 30, { chapter: currentCh.id }))
     }
@@ -146,7 +172,7 @@ export function generateDayTasks(
       const ch = withCases[0]
       tasks.push(task('case', `案例训练：${ch.cases[0].title}`, 30, 1, { caseId: ch.cases[0].id }))
     }
-    const currentCh = withQuestions[0]
+    const currentCh = pickCurrentChapter(chapters, progress)
     if (currentCh) {
       tasks.push(task('quiz', `重点章节回炉：《${currentCh.title}》20 题`, 25, 20, { chapter: currentCh.id }))
     }
@@ -177,7 +203,7 @@ export function isTaskDone(t: DayTask, progress: Progress, date = todayStr()): b
     case 'quiz': {
       const n = progress.quiz.history.filter(
         (h) =>
-          h.at.slice(0, 10) === date &&
+          localDateOf(h.at) === date &&
           h.mode !== 'wrong' &&
           (!t.chapter || chapterOfQid(h.qid) === t.chapter),
       ).length
@@ -185,16 +211,16 @@ export function isTaskDone(t: DayTask, progress: Progress, date = todayStr()): b
     }
     case 'wrong': {
       const n = progress.quiz.history.filter(
-        (h) => h.at.slice(0, 10) === date && h.mode === 'wrong',
+        (h) => localDateOf(h.at) === date && h.mode === 'wrong',
       ).length
       return n >= t.target
     }
     case 'case': {
       if (!t.caseId) return false
-      return (progress.cases[t.caseId]?.attempts ?? []).some((a) => a.at.slice(0, 10) === date)
+      return (progress.cases[t.caseId]?.attempts ?? []).some((a) => localDateOf(a.at) === date)
     }
     case 'mock':
-      return progress.mock.attempts.some((a) => a.at.slice(0, 10) === date)
+      return progress.mock.attempts.some((a) => localDateOf(a.at) === date)
   }
 }
 

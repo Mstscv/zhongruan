@@ -27,3 +27,4 @@ dist-ssr
 test-results/
 playwright-report/
 dist-single/
+tests/e2e/screenshots/

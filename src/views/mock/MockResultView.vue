@@ -4,6 +4,8 @@ import { useRouter } from 'vue-router'
 import { useProgressStore } from '@/stores/progress'
 import { getManifest, loadQuestionMap } from '@/services/contentLoader'
 import { chapterOfQid } from '@/services/quizEngine'
+import { hasPassed, passLineLabel } from '@/utils/score'
+import { localDateOf } from '@/utils/date'
 import type { Question } from '@/types/schema'
 import TopBar from '@/components/TopBar.vue'
 import AppButton from '@/components/AppButton.vue'
@@ -15,7 +17,10 @@ const store = useProgressStore()
 const manifest = getManifest()
 
 const attempt = computed(() => store.data.mock.attempts[store.data.mock.attempts.length - 1])
-const passed = computed(() => attempt.value && attempt.value.score >= manifest.exam.passLine)
+const passed = computed(
+  () => attempt.value && hasPassed(attempt.value.score, attempt.value.total, manifest.exam),
+)
+const attemptPassLine = computed(() => (attempt.value ? passLineLabel(attempt.value.total, manifest.exam) : ''))
 
 const wrongQuestions = ref<Question[]>([])
 const explainOpen = ref<Record<string, boolean>>({})
@@ -59,6 +64,16 @@ const chapterStats = computed(() => {
 })
 
 const history = computed(() => [...store.data.mock.attempts].reverse())
+
+/** 解析列表标题：区分"答错"与"未作答"，避免把未作答叫成错题 */
+const wrongTitle = computed(() => {
+  const a = attempt.value
+  if (!a) return '错题解析'
+  const wrongCount = a.wrongQids.length - a.unanswered.length
+  if (wrongCount > 0 && a.unanswered.length > 0) return '错题与未作答'
+  if (a.unanswered.length > 0) return '未作答'
+  return '错题解析'
+})
 </script>
 
 <template>
@@ -96,11 +111,11 @@ const history = computed(() => [...store.data.mock.attempts].reverse())
               {{ passed ? '🎉 达标' : '未达合格线' }}
             </p>
             <p class="mt-1 text-[14px] text-ink2">
-              合格线 {{ manifest.exam.passLine }} 分（占位值）
+              合格线 {{ attemptPassLine }} · 占位值
             </p>
             <p class="text-[13.5px] text-muted">
               用时 {{ Math.round(attempt.durationSec / 60) }} 分钟 ·
-              {{ attempt.at.slice(0, 10) }}
+              {{ localDateOf(attempt.at) }}
             </p>
           </div>
         </section>
@@ -128,7 +143,7 @@ const history = computed(() => [...store.data.mock.attempts].reverse())
         <!-- 错题解析 -->
         <section v-if="wrongQuestions.length">
           <h2 class="mb-1 px-1 text-[14px] font-semibold text-muted">
-            错题解析（{{ wrongQuestions.length }} 道）
+            {{ wrongTitle }}（{{ wrongQuestions.length }} 道）
           </h2>
           <p class="mb-2 px-1 text-[12.5px] text-muted">答错的题已自动收入错题本；未作答的只计入成绩。</p>
           <div class="space-y-2.5">
@@ -169,9 +184,9 @@ const history = computed(() => [...store.data.mock.attempts].reverse())
               :key="a.at"
               class="flex items-center justify-between rounded-lg bg-surface px-3 py-2"
             >
-              <span class="text-muted">#{{ history.length - i }} · {{ a.at.slice(0, 10) }}</span>
+              <span class="text-muted">#{{ history.length - i }} · {{ localDateOf(a.at) }}</span>
               <span class="text-ink2">{{ Math.round(a.durationSec / 60) }} 分钟</span>
-              <span class="font-bold" :class="a.score >= manifest.exam.passLine ? 'text-success' : 'text-danger'">
+              <span class="font-bold" :class="hasPassed(a.score, a.total, manifest.exam) ? 'text-success' : 'text-danger'">
                 {{ a.score }} 分
               </span>
             </div>

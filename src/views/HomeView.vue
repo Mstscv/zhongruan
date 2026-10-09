@@ -101,10 +101,10 @@ const lastReadTitle = computed(() => {
               <router-link to="/me" class="ml-1 text-accent underline-offset-2">修改</router-link>
             </p>
           </div>
-          <div class="pb-1 text-right">
+          <div class="shrink-0 whitespace-nowrap pb-1 text-right">
             <p class="text-[12.5px] text-muted">今日学习</p>
             <p class="text-[15px] font-semibold">
-              {{ stats.taskDone }}/{{ stats.todayTasks.length || '—' }} 项任务
+              {{ stats.taskDone }}/{{ stats.todayTasks.length || '—' }} 项
             </p>
           </div>
         </div>

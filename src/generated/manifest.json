@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-08T14:54:52.735Z",
+  "generatedAt": "2026-10-09T02:31:38.836Z",
   "disclaimer": "本手册与题库由 AI 依据公开知识生成，属练习材料；知识点与考试安排请以《系统集成项目管理工程师教程（第3版）》及官方通知为准。",
   "exam": {
-    "defaultDate": "2027-05-20",
+    "defaultDate": "2027-05-23",
     "passScore": 75,
     "passLine": 45,
     "paperQuestions": 75,

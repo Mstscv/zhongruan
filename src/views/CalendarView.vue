@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useProgressStore } from '@/stores/progress'
-import { daysInMonth, todayStr } from '@/utils/date'
+import { daysInMonth, localDateOf, todayStr } from '@/utils/date'
 import TopBar from '@/components/TopBar.vue'
 
 const store = useProgressStore()
@@ -58,7 +58,7 @@ const last7 = computed(() => {
     const ds = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`
     counts.push({
       date: ds,
-      n: store.data.quiz.history.filter((h) => h.at.slice(0, 10) === ds).length,
+      n: store.data.quiz.history.filter((h) => localDateOf(h.at) === ds).length,
     })
   }
   return counts

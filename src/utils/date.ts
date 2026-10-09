@@ -7,6 +7,12 @@ export function todayStr(d: Date = new Date()): string {
   return `${y}-${m}-${day}`
 }
 
+/** ISO 时间串 → 本地时区日期（与 todayStr 同口径）；无效输入退回前 10 位 */
+export function localDateOf(iso: string): string {
+  const d = new Date(iso)
+  return Number.isNaN(d.getTime()) ? iso.slice(0, 10) : todayStr(d)
+}
+
 export function parseDate(dateStr: string): Date {
   const [y, m, d] = dateStr.split('-').map(Number)
   return new Date(y, m - 1, d)

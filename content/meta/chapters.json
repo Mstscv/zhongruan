@@ -2,7 +2,7 @@
   "version": 1,
   "note": "章节骨架基于《系统集成项目管理工程师教程（第3版）》体系整理；标题可对照官方目录修订，id（ch01~ch19）一经冻结不可更改。",
   "exam": {
-    "defaultDate": "2027-05-20",
+    "defaultDate": "2027-05-23",
     "passScore": 75,
     "passLine": 45,
     "paperQuestions": 75,

@@ -5,6 +5,8 @@ import { useProgressStore } from '@/stores/progress'
 import { useMockSessionStore } from '@/stores/mockSession'
 import { getManifest, loadChapterQuestions } from '@/services/contentLoader'
 import { buildPaper, mulberry32 } from '@/services/quizEngine'
+import { hasPassed, passLineLabel } from '@/utils/score'
+import { localDateOf } from '@/utils/date'
 import type { Question } from '@/types/schema'
 import TopBar from '@/components/TopBar.vue'
 import AppButton from '@/components/AppButton.vue'
@@ -18,13 +20,19 @@ const manifest = getManifest()
 const count = ref<75 | 25>(75)
 const building = ref(false)
 
+/** 题库现有题量（来自 manifest，无需加载题目内容） */
+const available = manifest.chapters.reduce((a, c) => a + c.questionCount, 0)
+/** 全真卷实际能组出的题数：题库不足 75 时按现有题量 */
+const fullCount = computed(() => Math.min(manifest.blueprint.total, available))
+/** 当前所选卷种实际开考题数 */
+const actualCount = computed(() => Math.min(count.value, available))
+
 const resumeSession = computed(() => (mock.session && !mock.session.finished ? mock.session : null))
 
-const minutes = computed(() =>
-  count.value === 75
-    ? store.data.profile.paperMinutes
-    : Math.max(15, Math.round((store.data.profile.paperMinutes * count.value) / 75)),
-)
+/** 时长随实际题量等比换算（全真 75 题时即 paperMinutes 原值） */
+const minutesFor = (n: number) =>
+  Math.max(15, Math.round((store.data.profile.paperMinutes * n) / manifest.blueprint.total))
+const minutes = computed(() => minutesFor(actualCount.value))
 
 const best = computed(() => {
   const attempts = store.data.mock.attempts
@@ -92,8 +100,11 @@ async function startExam() {
       <section class="card p-4">
         <h2 class="text-[16px] font-semibold">考试规则</h2>
         <ul class="mt-2 space-y-1.5 text-[14.5px] leading-relaxed text-ink2">
-          <li>· 卷面 {{ manifest.blueprint.total }} 题，每题 1 分，满分 {{ manifest.blueprint.total }} 分</li>
-          <li>· 合格线 {{ manifest.exam.passLine }} 分（占位值，请以官方通知为准）</li>
+          <li>
+            · 卷面 {{ fullCount }} 题（题库现有 {{ available }} 题，不足时按现有题量组卷），每题 1 分，满分
+            {{ fullCount }} 分
+          </li>
+          <li>· 合格线 {{ passLineLabel(fullCount, manifest.exam) }} · 占位值，请以官方通知为准</li>
           <li>· 默认时长 {{ store.data.profile.paperMinutes }} 分钟，可到"我的"里修改</li>
           <li>· 计时按绝对截止时刻，退出/刷新都能续考，超时自动交卷</li>
           <li>· 交卷后出成绩单：分数、按章得分分布、错题解析</li>
@@ -107,8 +118,8 @@ async function startExam() {
         <div class="grid grid-cols-2 gap-3">
           <button
             v-for="c in [
-              { v: 75, t: '全真模拟', d: `${manifest.blueprint.total} 题 · ${store.data.profile.paperMinutes} 分钟` },
-              { v: 25, t: '练习卷', d: `${25} 题 · ${Math.max(15, Math.round((store.data.profile.paperMinutes * 25) / 75))} 分钟` },
+              { v: 75, t: '全真模拟', d: `${fullCount} 题 · ${minutesFor(fullCount)} 分钟` },
+              { v: 25, t: '练习卷', d: `${Math.min(25, available)} 题 · ${minutesFor(Math.min(25, available))} 分钟` },
             ]"
             :key="c.v"
             type="button"
@@ -131,11 +142,11 @@ async function startExam() {
             :key="a.at"
             class="flex items-center justify-between rounded-lg bg-surface px-3 py-2"
           >
-            <span class="text-muted">{{ a.at.slice(0, 10) }}</span>
+            <span class="text-muted">{{ localDateOf(a.at) }}</span>
             <span>{{ a.total }} 题 · 用时 {{ Math.round(a.durationSec / 60) }} 分钟</span>
             <span
               class="font-bold"
-              :class="a.score >= manifest.exam.passLine ? 'text-success' : 'text-danger'"
+              :class="hasPassed(a.score, a.total, manifest.exam) ? 'text-success' : 'text-danger'"
               >{{ a.score }} 分</span
             >
           </div>
@@ -153,8 +164,14 @@ async function startExam() {
     <div
       class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/96 px-4 pb-[calc(14px+env(safe-area-inset-bottom))] pt-3 backdrop-blur"
     >
-      <AppButton block size="lg" :disabled="building" @click="startExam">
-        {{ building ? '正在组卷…' : `开始考试（${count} 题 · ${minutes} 分钟）` }}
+      <AppButton block size="lg" :disabled="building || available === 0" @click="startExam">
+        {{
+          building
+            ? '正在组卷…'
+            : available === 0
+              ? '题库暂无题目'
+              : `开始考试（${actualCount} 题 · ${minutes} 分钟）`
+        }}
       </AppButton>
     </div>
   </div>

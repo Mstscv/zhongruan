@@ -48,9 +48,9 @@ test('J3 模拟考（25题练习卷）→ 答题卡/标记 → 刷新续考 → 
   await expect(page.getByText('4', { exact: true }).first()).toBeVisible()
   await expect(page.getByText('未达合格线')).toBeVisible()
   await expect(page.getByText(/用时 \d+ 分钟/)).toBeVisible()
-  // 按章分布与错题解析
+  // 按章分布与未作答解析列表
   await expect(page.getByText('各章得分率（从弱到强）')).toBeVisible()
-  await expect(page.getByText(/错题解析（21 道/)).toBeVisible()
+  await expect(page.getByText(/未作答（21 道/)).toBeVisible()
   // 点开一道题看解析（未作答的标注"未作答"）
   await page.getByText('看解析 ▼').first().click()
   await expect(page.getByText(/【考点】/).first()).toBeVisible()

@@ -9,6 +9,7 @@ import {
   selectQuestions,
   type PracticeContext,
 } from '@/services/quizEngine'
+import { hasPassed } from '@/utils/score'
 import { useQuizSessionStore } from '@/stores/quizSession'
 import TopBar from '@/components/TopBar.vue'
 import { toast } from '@/composables/toast'
@@ -17,6 +18,10 @@ const router = useRouter()
 const store = useProgressStore()
 const session = useQuizSessionStore()
 const manifest = getManifest()
+
+/** 全真卷实际题量：题库不足蓝图 75 题时按现有题量展示 */
+const available = manifest.chapters.reduce((a, c) => a + c.questionCount, 0)
+const fullCount = Math.min(manifest.blueprint.total, available)
 
 const ctx = computed<PracticeContext>(() => ({
   answered: store.data.quiz.answered,
@@ -96,7 +101,7 @@ async function startRandom() {
         >
           <span class="text-[22px]">⏱️</span>
           <span class="text-[15.5px] font-semibold">模拟考试</span>
-          <span class="text-[12.5px] text-muted">{{ manifest.blueprint.total }} 题计时全真卷</span>
+          <span class="text-[12.5px] text-muted">{{ fullCount }} 题计时全真卷</span>
         </button>
         <button
           type="button"
@@ -146,7 +151,7 @@ async function startRandom() {
           <div v-for="a in recentMocks" :key="a.at" class="flex flex-1 flex-col items-center gap-1">
             <span
               class="text-[17px] font-bold"
-              :class="a.score >= manifest.exam.passLine ? 'text-success' : 'text-danger'"
+              :class="hasPassed(a.score, a.total, manifest.exam) ? 'text-success' : 'text-danger'"
               >{{ a.score }}</span
             >
             <div class="w-full rounded-md bg-surface" :style="{ height: `${Math.max(8, (a.score / a.total) * 56)}px` }">
@@ -166,7 +171,9 @@ async function startRandom() {
             :key="ch.id"
             type="button"
             class="flex w-full items-center gap-3 px-4 py-3.5 text-left active:bg-surface"
-            @click="router.push(`/quiz/ch/${ch.id}`)"
+            :class="{ 'cursor-default opacity-60': !ch.questionCount }"
+            :disabled="!ch.questionCount"
+            @click="ch.questionCount && router.push(`/quiz/ch/${ch.id}`)"
           >
             <span
               class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[13px] font-bold"
@@ -183,7 +190,12 @@ async function startRandom() {
                 <span v-if="!ch.questionCount" class="text-warn">题库待上线</span>
               </div>
             </div>
-            <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-muted" fill="none">
+            <svg
+              v-if="ch.questionCount"
+              viewBox="0 0 24 24"
+              class="h-5 w-5 shrink-0 text-muted"
+              fill="none"
+            >
               <path d="m9.5 5.5 6.5 6.5-6.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
