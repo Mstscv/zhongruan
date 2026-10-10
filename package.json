@@ -13,7 +13,8 @@
     "stats": "tsx tools/stats.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "build:single": "vite build --mode single"
+    "build:single": "vite build --mode single",
+    "deploy": "tsx tools/deploy-pages.ts"
   },
   "dependencies": {
     "markdown-it": "^15.0.2",
